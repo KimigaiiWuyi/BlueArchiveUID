@@ -9,7 +9,12 @@ from ..utils.resource_path import GUIDE_PATH
 
 
 async def get_guide_img(battle: str) -> Union[bytes, str]:
-    battle = battle.strip().replace('困难', 'H').replace('Hard', 'H')
+    battle = (
+        battle.strip()
+        .replace('困难', 'H')
+        .replace('Hard', 'H')
+        .replace('h', 'H')
+    )
     if battle.endswith('H'):
         battle = 'H' + battle[:-1]
     img = await download_file(
