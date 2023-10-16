@@ -3,7 +3,7 @@ from typing import Any, Dict, Union, Literal, Optional
 from gsuid_core.logger import logger
 from aiohttp import FormData, TCPConnector, ClientSession, ContentTypeError
 
-from .api import ARONA_URL
+from .api import ARONA_URL, BATTLE_URL
 
 
 class BaseBAApi:
@@ -12,6 +12,13 @@ class BaseBAApi:
 
     async def get_arona_guide_index(self, name: str) -> Union[Dict, int]:
         return await self._ba_request(ARONA_URL.format(name.strip()))
+
+    async def get_raid_ranking(
+        self, season: Union[str, int]
+    ) -> Optional[Dict]:
+        data = await self._ba_request(BATTLE_URL.format(season))
+        if isinstance(data, Dict) and 'errno' in data and data['errno'] == 0:
+            return data
 
     async def _ba_request(
         self,
