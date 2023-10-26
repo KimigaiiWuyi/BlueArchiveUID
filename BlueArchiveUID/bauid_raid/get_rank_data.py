@@ -3,8 +3,13 @@ from typing import Union
 
 from ..utils.ba_api import ba_api
 
+now_season = 6
 
-async def get_ranking(season: Union[str, int] = 5) -> str:
+
+async def get_ranking(season: Union[str, int, None] = now_season) -> str:
+    if season is None:
+        season = now_season
+
     data = await ba_api.get_raid_ranking(season)
     if data is None:
         return '获取数据失败!'
