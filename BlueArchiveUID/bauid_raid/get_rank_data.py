@@ -40,12 +40,13 @@ async def get_ranking_from_xtzx(
             if data["data"][rank]:
                 im_list.append(f'第{rank}: {data["data"][rank][-1]}')
 
+    im_list.append('✅换源请发【总力战档位】')
     if server_id == '1':
-        im_list.append('如需查询B服数据请使用命令: ba总力战b')
+        im_list.append('✅查B服请发【ba总力战b】')
     else:
-        im_list.append('如需查询官服数据请使用命令: ba总力战')
+        im_list.append('✅查官服请发【ba总力战】')
 
-    im_list.append(f'数据最后更新于: {last_update}')
+    im_list.append(f'✅最后更新于: {last_update}')
 
     return '\n'.join(im_list)
 
