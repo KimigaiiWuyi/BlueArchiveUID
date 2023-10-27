@@ -18,6 +18,10 @@ async def send_raid_msg(bot: Bot, ev: Event):
 
 @sv_ba_raid.on_command(('ba总力战', 'BA总力战'))
 async def send_xtzx_msg(bot: Bot, ev: Event):
+    if 'B' in ev.text or 'b' in ev.text:
+        server_id = 2
+    else:
+        server_id = 1
     match = re.search(r'\d+', ev.text)
     season = match.group() if match else None
-    await bot.send(await get_ranking_from_xtzx(season))
+    await bot.send(await get_ranking_from_xtzx(season, server_id))

@@ -8,37 +8,45 @@ now_season = 6
 SERVER_MAP = {'1': '官服', '2': 'B服'}
 
 
-async def get_ranking_from_xtzx(season: Union[str, int, None] = None):
+async def get_ranking_from_xtzx(
+    season: Union[str, int, None] = None, server_id: Union[str, int] = 1
+):
     sdata = await ba_api.get_now_season_data()
     if sdata is None:
         return '获取数据失败!'
     season = sdata['season']
     title = f"~「第{season}期：{sdata['map']['value']} - {sdata['boss']}」~"
 
+    server_id = str(server_id)
     im_list = [title]
     last_update = ''
-    for server_id in ['1', '2']:
-        im_list.append(f'【{SERVER_MAP[server_id]}数据】:')
-        data = await ba_api.get_xtzx_raid_chart(season, server_id)
-        top_data = await ba_api.get_xtzx_raid_top(season, server_id)
-        if top_data is not None:
-            for ix, i in enumerate(['🥇', '🥈', '🥉']):
-                im_list.append(
-                    f'{i}档线: {top_data[ix]["bestRankingPoint"]}'
-                    f'({top_data[ix]["hard"]} - {top_data[ix]["battleTime"]})'
-                )
-            im_list.append('🔻🔻🔻🔻')
+    # for server_id in ['1', '2']:
+    im_list.append(f'【{SERVER_MAP[server_id]}数据】:')
+    data = await ba_api.get_xtzx_raid_chart(season, server_id)
+    top_data = await ba_api.get_xtzx_raid_top(season, server_id)
+    if top_data is not None:
+        for ix, i in enumerate(['🥇', '🥈', '🥉']):
+            im_list.append(
+                f'{i}档线: {top_data[ix]["bestRankingPoint"]}'
+                f'({top_data[ix]["hard"]} - {top_data[ix]["battleTime"]})'
+            )
 
-        if data is not None:
-            _last_update = data['time'][-1]
-            print(_last_update)
-            current_date = datetime.datetime.fromtimestamp(_last_update / 1000)
-            last_update = current_date.strftime('%Y-%m-%d %H:%M:%S')
-            for rank in data['data']:
-                if data["data"][rank]:
-                    im_list.append(f'第{rank}: {data["data"][rank][-1]}')
+    if data is not None:
+        _last_update = data['time'][-1]
+        print(_last_update)
+        current_date = datetime.datetime.fromtimestamp(_last_update / 1000)
+        last_update = current_date.strftime('%Y-%m-%d %H:%M:%S')
+        for rank in data['data']:
+            if data["data"][rank]:
+                im_list.append(f'第{rank}: {data["data"][rank][-1]}')
+
+    if server_id == '1':
+        im_list.append('如需查询B服数据请使用命令: ba总力战b')
+    else:
+        im_list.append('如需查询官服数据请使用命令: ba总力战')
 
     im_list.append(f'数据最后更新于: {last_update}')
+
     return '\n'.join(im_list)
 
 
