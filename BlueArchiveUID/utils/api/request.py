@@ -1,9 +1,16 @@
-from typing import Any, Dict, Union, Literal, Optional
+from typing import Any, Dict, List, Union, Literal, Optional
 
 from gsuid_core.logger import logger
 from aiohttp import FormData, TCPConnector, ClientSession, ContentTypeError
 
-from .api import ARONA_URL, BATTLE_URL
+from .api import (
+    ARONA_URL,
+    BATTLE_URL,
+    XTZX_RAID_TOP,
+    XTZX_RAID_LIST,
+    XTZX_RAID_RANK,
+    XTZX_RAID_CHART,
+)
 
 
 class BaseBAApi:
@@ -12,6 +19,71 @@ class BaseBAApi:
 
     async def get_arona_guide_index(self, name: str) -> Union[Dict, int]:
         return await self._ba_request(ARONA_URL.format(name.strip()))
+
+    async def get_xtzx_raid_list(self) -> Optional[List[Dict]]:
+        data = await self._ba_request(XTZX_RAID_LIST)
+        if isinstance(data, Dict):
+            return data['data']
+
+    async def get_now_season_data(self) -> Optional[Dict]:
+        data = await self.get_xtzx_raid_list()
+        if data is None:
+            return None
+        return data[0]
+
+    async def get_xtzx_raid_chart(
+        self,
+        season: Union[str, int, None] = None,
+        server_id: Union[str, int] = 1,
+    ) -> Optional[Dict]:
+        if season is None:
+            now_season = await self.get_now_season_data()
+            if now_season is None:
+                return None
+            season = now_season['season']
+        data = await self._ba_request(
+            XTZX_RAID_CHART.format(server_id, season)
+        )
+        if (
+            isinstance(data, Dict)
+            and 'data' in data
+            and 'code' in data
+            and data['code'] == 200
+        ):
+            return data['data']
+
+    async def get_xtzx_raid_top(
+        self,
+        season: Union[str, int, None] = None,
+        server_id: Union[str, int] = 1,
+    ) -> Optional[List[Dict]]:
+        if season is None:
+            now_season = await self.get_now_season_data()
+            if now_season is None:
+                return None
+            season = now_season['season']
+        data = await self._ba_request(XTZX_RAID_TOP.format(server_id, season))
+        if (
+            isinstance(data, Dict)
+            and 'data' in data
+            and 'code' in data
+            and data['code'] == 200
+        ):
+            return data['data']
+
+    async def get_xtzx_raid_ranking(
+        self,
+        season: Union[str, int, None] = None,
+        server_id: Union[str, int] = 1,
+    ):
+        if season is None:
+            now_season = await self.get_now_season_data()
+            if now_season is None:
+                return None
+            season = now_season['season']
+        data = await self._ba_request(XTZX_RAID_RANK.format(server_id, season))
+        if isinstance(data, Dict) and 'code' in data and data['code'] == 200:
+            return data
 
     async def get_raid_ranking(
         self, season: Union[str, int]
