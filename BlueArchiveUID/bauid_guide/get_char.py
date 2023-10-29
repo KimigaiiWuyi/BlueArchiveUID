@@ -3,6 +3,7 @@ from typing import Union
 from PIL import Image
 from gsuid_core.utils.image.convert import convert_img
 
+from .alias import alias
 from ..utils.ba_api import ba_api
 from ..utils.api.api import SOME_URL
 from ..utils.download import download_file
@@ -10,6 +11,11 @@ from ..utils.resource_path import CHAR_PATH
 
 
 async def get_char_img(name: str) -> Union[bytes, str]:
+    for i in alias:
+        if name in alias[i]:
+            name = i
+            break
+
     data = await ba_api.get_arona_guide_index(name)
     if isinstance(data, int):
         return '获取角色攻略失败...'
