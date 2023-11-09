@@ -3,7 +3,7 @@ from typing import Union
 
 from ..utils.ba_api import ba_api
 
-now_season = 6
+now_season = 7
 
 SERVER_MAP = {'1': '官服', '2': 'B服'}
 
@@ -26,10 +26,11 @@ async def get_ranking_from_xtzx(
     top_data = await ba_api.get_xtzx_raid_top(season, server_id)
     if top_data is not None:
         for ix, i in enumerate(['🥇', '🥈', '🥉']):
-            im_list.append(
-                f'{i}档线: {top_data[ix]["bestRankingPoint"]}'
-                f'({top_data[ix]["hard"]} - {top_data[ix]["battleTime"]})'
-            )
+            if len(top_data) > ix:
+                im_list.append(
+                    f'{i}档线: {top_data[ix]["bestRankingPoint"]}'
+                    f'({top_data[ix]["hard"]} - {top_data[ix]["battleTime"]})'
+                )
 
     if data is not None:
         _last_update = data['time'][-1]
