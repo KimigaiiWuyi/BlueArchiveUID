@@ -7,6 +7,7 @@ from gsuid_core.models import Event
 from .get_rank_data import get_ranking, get_ranking_from_xtzx
 
 sv_ba_raid = SV('BA总力战')
+sv_ba_xtzx_raid = SV('BA什亭之匣总力战')
 
 
 @sv_ba_raid.on_command(('总力战档位'))
@@ -16,7 +17,7 @@ async def send_raid_msg(bot: Bot, ev: Event):
     await bot.send(await get_ranking(season))
 
 
-@sv_ba_raid.on_command(('ba总力战', 'BA总力战'))
+@sv_ba_xtzx_raid.on_command(('ba总力战', 'BA总力战'))
 async def send_xtzx_msg(bot: Bot, ev: Event):
     if 'B' in ev.text or 'b' in ev.text:
         server_id = 2
