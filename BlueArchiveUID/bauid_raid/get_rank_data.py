@@ -28,7 +28,7 @@ async def get_ranking_from_xtzx(
         for ix, i in enumerate(['🥇', '🥈', '🥉']):
             if len(top_data) > ix:
                 im_list.append(
-                    f'{i}档线: {top_data[ix]["bestRankingPoint"]}'
+                    f'{i}档线: {top_data[ix]["bestRankingPoint"]:,}'
                     f'({top_data[ix]["hard"]} - {top_data[ix]["battleTime"]})'
                 )
 
@@ -38,7 +38,7 @@ async def get_ranking_from_xtzx(
         last_update = current_date.strftime('%Y-%m-%d %H:%M:%S')
         for rank in data['data']:
             if data["data"][rank]:
-                im_list.append(f'第{rank}: {data["data"][rank][-1]}')
+                im_list.append(f'第{rank}: {data["data"][rank][-1]:,}')
 
     im_list.append('✅换源请发【总力战档位】')
     if server_id == '1':
@@ -81,7 +81,7 @@ async def get_ranking(season: Union[str, int, None] = now_season) -> str:
     for t in rank:
         im_list.append(f'{t}服:')
         for d in rank[t]:
-            im_list.append(f'第{d}名: {rank[t][d]}')
+            im_list.append(f'第{d}名: {rank[t][d]:,}')
 
     im_list.append(f'官服Ex通过人数: {ex_finished}')
     im_list.append(f'B服Ex通过人数: {bili_ex_finished}')
