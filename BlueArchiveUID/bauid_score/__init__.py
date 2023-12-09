@@ -1,5 +1,5 @@
+from gsuid_core.sv import SV
 from gsuid_core.bot import Bot
-from gsuid_core.sv import SL, SV
 from gsuid_core.models import Event
 
 from .bata_score_to_time import bata_time
@@ -13,7 +13,9 @@ sv_ba_time = SV('BA总力战算用时')
 async def send_score_msg(bot: Bot, ev: Event):
     if not ev.text:
         await bot.send(
-            '输入 难度+Boss+剩x:xx.xxx 算总力战分数，输入示例：ex寿司剩1:23.433\n请注意！分钟和秒用冒号分割！秒和毫秒用点分割！\n支持多刀计算，支持省略分钟，支持省略毫秒，只需空格+下一刀剩余时间，输入示例：ex寿司剩1:23.433 56.789 1:23'
+            '输入 难度+Boss+剩x:xx.xxx 算总力战分数，输入示例：ex寿司剩1:23.433\n'
+            '请注意！分钟和秒用冒号分割！秒和毫秒用点分割！\n'
+            '支持多刀计算，支持省略分钟，支持省略毫秒，只需空格+下一刀剩余时间，输入示例：ex寿司剩1:23.433 56.789 1:23'
         )
     else:
         sc = bata_score(ev.text)
