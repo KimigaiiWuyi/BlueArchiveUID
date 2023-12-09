@@ -113,7 +113,7 @@ def tsf_kntm(msg):
                 )
                 seconds = time_delta.total_seconds()
                 totalt += seconds
-            except:
+            except:  # noqa: E722
                 return '输入时间有误'
         # 返回刀数、剩余总秒数
         return len(match), totalt
