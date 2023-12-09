@@ -23,7 +23,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "BlueArchiveUID"
-version = "0.0.1"
+version = "0.2.0"
 description = "基于gsuid-core, 支持NoneBot2 & HoshinoBot & ZeroBot & YunzaiBot的蔚蓝档案Bot插件"
 authors = ["KimigaiiWuyi <444835641@qq.com>"]
 license = "GPL-3.0-or-later"
