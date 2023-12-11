@@ -136,11 +136,10 @@ def score_time(boss, score, level):
 
 
 # 输入消息计算总力战用时并提示难度的函数
-def bata_time(msg):
+def bata_score_time(msg):
     bs = tsf_boss_s(msg)
     sc = tsf_score(msg)
     lv = score_level(bs, sc)
-
     err_msg = []
     if bs == '输入Boss名称有误' or bs == '未匹配到Boss名称':
         err_msg.append('请检查输入的Boss名称')
