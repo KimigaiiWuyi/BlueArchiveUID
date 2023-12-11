@@ -2,7 +2,6 @@
 # 请注意！分钟和秒用冒号分割！秒和毫秒用点分割！
 # 支持多刀计算，支持省略分钟，支持省略毫秒，只需空格+下一刀用时，输入示例：“ex寿司用1:23.433 56.789 1:23”
 
-import re
 
 from bata_rtime_to_score import tsf_kntm, tsf_level, tsf_boss_t
 
