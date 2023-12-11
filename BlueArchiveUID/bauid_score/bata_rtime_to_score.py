@@ -41,8 +41,13 @@ def tsf_level(msg):
 # 从消息匹配Boss名称并转换Boss时间类型(str)的函数
 def tsf_boss_t(msg):
     bmsg = msg.lower().replace('hod', '霍德').replace('goz', '戈兹')
-    match1 = re.search(r'([\u4e00-\u9fa5]{1,5})+[/^剩]', bmsg)
-    if match1:
+    if '剩' in bmsg:
+        match = re.search(r'([\u4e00-\u9fa5]{1,5})+[/^剩]', bmsg)
+    elif '用' in bmsg:
+        match = re.search(r'([\u4e00-\u9fa5]{1,5})+[/^用]', bmsg)
+    else:
+        return '这是不可能的报错'
+    if match:
         mapping = {
             '蛇': 'ba3',
             '大蛇': 'ba3',
@@ -75,7 +80,7 @@ def tsf_boss_t(msg):
             '猫鬼': 'ba4',
             '夜猫': 'ba4',
         }
-        mapped_boss = mapping.get(match1.group(1), None)
+        mapped_boss = mapping.get(match.group(1), None)
         if mapped_boss == 'ba3' or mapped_boss == 'ba4':
             return mapped_boss
         else:
@@ -84,7 +89,7 @@ def tsf_boss_t(msg):
         return '未匹配到Boss名称'
 
 
-# 从消息匹配剩余时间并转换刀数(int)、剩余秒数(float)的函数
+# 从消息匹配时间并转换刀数(int)、总秒数(float)的函数
 def tsf_kntm(msg):
     tmsg = (
         msg.replace('：', ':')
@@ -115,40 +120,41 @@ def tsf_kntm(msg):
                 totalt += seconds
             except:  # noqa: E722
                 return '输入时间有误'
-        # 返回刀数、剩余总秒数
+        # 返回刀数、总秒数
         return len(match), totalt
     else:
         return '未匹配到剩余时间'
 
 
-# 使用Boss时间类型(str)、刀数(int)、剩余秒数(float)、难度指数(int)来计算总力战分数的函数
-def time_score(boss, kntm, level):
+# 使用Boss时间类型(str)、刀数(int)、剩余总秒数(float)、难度指数(int)来计算总力战分数的函数
+def rtime_score(boss, kntm, level):
     kn = kntm[0]
-    tm = kntm[1]
+    rtm = kntm[1]
     if boss == 'ba3':
-        if tm <= 720:
-            batime3 = kn * 180 - tm
-            score3 = (911000 - batime3 * 400) * 2**level
-            return int(score3)
-        elif tm > 720:
-            return '9968000'
+        utm = kn * 180 - rtm
+        if utm < 720:
+            score = (911000 - utm * 400) * 2**level
+            return int(score)
+        elif utm >= 720:
+            score = 623000 * 2**level
+            return int(score)
     elif boss == 'ba4':
-        if tm <= 960:
-            batime4 = kn * 240 - tm
-            score4 = (959000 - batime4 * 400) * 2**level
-            return int(score4)
-        elif tm > 960:
-            return '9,200,000'
+        utm = kn * 240 - rtm
+        if utm < 960:
+            score = (959000 - utm * 400) * 2**level
+            return int(score)
+        elif utm >= 960:
+            score = 575000 * 2**level
+            return int(score)
     else:
         return '未知Boss时间类型'
 
 
 # 输入消息计算总力战分数的函数
-def bata_score(msg):
+def bata_rtime_score(msg):
     bs = tsf_boss_t(msg)
     kt = tsf_kntm(msg)
     lv = tsf_level(msg)
-
     err_msg = []
     if lv == '输入难度有误' or lv == '未匹配到难度等级':
         err_msg.append('请检查输入的难度')
@@ -157,7 +163,7 @@ def bata_score(msg):
     if kt == '输入时间有误' or kt == '未匹配到剩余时间':
         err_msg.append('请检查输入的剩余时间')
     if err_msg == []:
-        score = time_score(bs, kt, lv)
+        score = rtime_score(bs, kt, lv)
         return str(score)
     else:
         return '\n'.join(err_msg)
