@@ -21,7 +21,7 @@ async def send_score_msg(bot: Bot, ev: Event):
                 '只需空格+下一刀剩余时间，输入示例：ex寿司剩1:23.433 56.789 1:23'
             )
         else:
-            sc = bata_utime_score(ev.text)
+            sc = bata_rtime_score(ev.text)
             await bot.send(sc)
     elif '用' in ev.text:
         if not ev.text:
@@ -32,7 +32,7 @@ async def send_score_msg(bot: Bot, ev: Event):
                 '只需空格+下一个用时，输入示例：ex寿司用2:23.433 56.789 2:23'
             )
         else:
-            sc = bata_rtime_score(ev.text)
+            sc = bata_utime_score(ev.text)
             await bot.send(sc)
     else:
         await bot.send('时间是“剩”还是“用”呢？')
