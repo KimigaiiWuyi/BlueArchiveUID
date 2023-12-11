@@ -135,15 +135,17 @@ def rtime_score(boss, kntm, level):
         if utm < 720:
             score = (911000 - utm * 400) * 2**level
             return int(score)
-        elif rtm >= 720:
-            return '9968000'
+        elif utm >= 720:
+            score = 623000 * 2**level
+            return int(score)
     elif boss == 'ba4':
         utm = kn * 240 - rtm
         if utm < 960:
             score = (959000 - utm * 400) * 2**level
             return int(score)
         elif utm >= 960:
-            return '9,200,000'
+            score = 575000 * 2**level
+            return int(score)
     else:
         return '未知Boss时间类型'
 

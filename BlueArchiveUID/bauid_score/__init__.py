@@ -17,7 +17,8 @@ async def send_score_msg(bot: Bot, ev: Event):
             await bot.send(
                 '输入 难度+Boss+剩x:xx.xxx 算总力战分数，输入示例：ex寿司剩1:23.433\n'
                 '请注意！分钟和秒用冒号分割！秒和毫秒用点分割！\n'
-                '支持多刀计算，支持省略分钟，支持省略毫秒，只需空格+下一刀剩余时间，输入示例：ex寿司剩1:23.433 56.789 1:23'
+                '支持多刀计算，支持省略分钟，支持省略毫秒，'
+                '只需空格+下一刀剩余时间，输入示例：ex寿司剩1:23.433 56.789 1:23'
             )
         else:
             sc = bata_utime_score(ev.text)
@@ -25,9 +26,10 @@ async def send_score_msg(bot: Bot, ev: Event):
     elif '用' in ev.text:
         if not ev.text:
             await bot.send(
-                '根据输入“难度+Boss+用x:xx.xxx”算总力战分数的插件，输入示例：“ex寿司用1:23.433”\n'
+                '输入 难度+Boss+用x:xx.xxx 算总力战分数，输入示例：ex寿司用5:23.433\n'
                 '请注意！分钟和秒用冒号分割！秒和毫秒用点分割！\n'
-                '支持多刀计算，支持省略分钟，支持省略毫秒，只需空格+下一刀用时，输入示例：“ex寿司用1:23.433 56.789 1:23”'
+                '支持多个时间计算，支持省略分钟，支持省略毫秒，'
+                '只需空格+下一个用时，输入示例：ex寿司用2:23.433 56.789 2:23'
             )
         else:
             sc = bata_rtime_score(ev.text)

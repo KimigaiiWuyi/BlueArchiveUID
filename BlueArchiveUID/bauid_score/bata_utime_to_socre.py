@@ -1,15 +1,14 @@
-# 根据输入“难度+Boss+用x:xx.xxx”算总力战分数的插件，输入示例：“ex寿司用1:23.433”
+# 根据输入“难度+Boss+用x:xx.xxx”算总力战分数的插件，输入示例：“ex寿司用5:23.433”
 # 请注意！分钟和秒用冒号分割！秒和毫秒用点分割！
-# 支持多刀计算，支持省略分钟，支持省略毫秒，只需空格+下一刀用时，输入示例：“ex寿司用1:23.433 56.789 1:23”
+# 支持多个时间计算，支持省略分钟，支持省略毫秒，只需空格+下一个用时，输入示例：“ex寿司用2:23.433 56.789 2:23”
 
 import re
 
-from bata_rtime_to_score import tsf_kntm, tsf_level, tsf_boss_t
+from .bata_rtime_to_score import tsf_kntm, tsf_level, tsf_boss_t
 
 
 # 使用Boss时间类型(str)、刀数(int)、用时总秒数(float)、难度指数(int)来计算总力战分数的函数
 def utime_score(boss, kntm, level):
-    kn = kntm[0]
     utm = kntm[1]
     if boss == 'ba3':
         if utm < 720:
