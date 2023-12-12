@@ -1,6 +1,6 @@
 # 根据输入“难度+Boss+剩x:xx.xxx”算总力战分数的插件，输入示例：“ex寿司剩1:23.433”
 # 请注意！分钟和秒用冒号分割！秒和毫秒用点分割！
-# 支持多刀计算，支持省略分钟，支持省略毫秒，只需空格+下一刀剩余时间，输入示例：“ex寿司剩1:23.433 56.789 1:23”
+# 支持多刀计算，支持省略分钟，支持省略毫秒，支持同时省略，只需空格+下一刀剩余时间，输入示例：“ex寿司剩1:23.433 23.433 1:23 23”
 
 import re
 from datetime import datetime, timedelta
@@ -99,7 +99,7 @@ def tsf_kntm(msg):
         .replace(',', '.')
         .replace('。', '.')
     )
-    match = re.findall(r'\d+\:\d+\.\d+|\d+\.\d+|\d+\:\d+', tmsg)
+    match = re.findall(r'\d+\:\d+\.\d+|\d+\.\d+|\d+\:\d+|\d+', tmsg)
     if match:
         totalt = 0
         for matched_time in match:
@@ -109,6 +109,8 @@ def tsf_kntm(msg):
                 matched_time = matched_time + ".0"
             elif '.' in matched_time:
                 matched_time = "0:" + matched_time
+            else:
+                matched_time = "0:" + matched_time + ".0"
             try:
                 time_obj = datetime.strptime(matched_time, "%M:%S.%f")
                 time_delta = timedelta(
