@@ -21,10 +21,10 @@ async def send_score_msg(bot: Bot, ev: Event):
         )
     else:
         if '剩' in ev.text:
-            sc = bata_rtime_score(ev.text)
+            sc = bata_rtime_score(strip(ev.text))
             await bot.send(sc)
         elif '用' in ev.text:
-            sc = bata_utime_score(ev.text)
+            sc = bata_utime_score(strip(ev.text))
             await bot.send(sc)
         else:
             await bot.send('是用时还是剩时呢？')
