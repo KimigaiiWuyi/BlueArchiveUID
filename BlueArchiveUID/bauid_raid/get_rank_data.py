@@ -36,11 +36,23 @@ async def get_ranking_from_xtzx(
         _last_update = data['time'][-1]
         current_date = datetime.datetime.fromtimestamp(_last_update / 1000)
         last_update = current_date.strftime('%Y-%m-%d %H:%M:%S')
-        for rank in data['data']:
-            if data["data"][rank]:
-                im_list.append(f'第{rank}: {data["data"][rank][-1]:,}')
+        for rank in [
+            '1',
+            '1000',
+            '2000',
+            '4000',
+            '8000',
+            '12000',
+            '20000',
+            '50000',
+            '100000',
+            '120000',
+            '200000',
+        ]:
+            if rank in data['data'] and data["data"][rank]:
+                im_list.append(f'第{rank}名: {data["data"][rank][-1]:,}')
 
-    im_list.append('✅换源请发【总力战档位】')
+    # im_list.append('✅换源请发【总力战档位】')
     if server_id == '1':
         im_list.append('✅查B服请发【ba总力战b】')
     else:
