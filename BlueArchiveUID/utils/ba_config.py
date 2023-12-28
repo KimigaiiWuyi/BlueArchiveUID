@@ -11,7 +11,10 @@ from gsuid_core.utils.plugins_config.models import GSC, GsStrConfig
 # 建立自己插件的CONFIG_DEFAULT
 # 名字无所谓, 类型一定是Dict[str, GSC]，以下为示例，可以添加无数个配置
 CONIFG_DEFAULT: Dict[str, GSC] = {
-    'xtzx_token': GsStrConfig('什亭之匣Token', 'ba总力战需求该token获取信息', '')
+    'xtzx_token': GsStrConfig('什亭之匣Token', 'ba总力战需求该token获取信息', ''),
+    'guide_source': GsStrConfig(
+        '优先攻略源', '选择默认优先攻略源', 'hehedi', ['hehedi', 'bawiki']
+    ),
 }
 
 CONFIG_PATH = get_res_path('BlueArchiveUID') / 'config.json'
