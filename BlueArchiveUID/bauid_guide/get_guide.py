@@ -6,7 +6,7 @@ from gsuid_core.utils.image.convert import convert_img
 from ..utils.api.api import GUIDE_URL
 from ..utils.ba_config import ba_config
 from ..utils.download import download_file
-from ..utils.resource_path import GUIDE_PATH, HEHEDI_GUIDE_PATH
+from ..utils.resource_path import GUIDE_PATH, HEHEDI_LEVEL_GUIDE_PATH
 
 guide_source = ba_config.get_config('guide_source').data
 
@@ -22,7 +22,7 @@ async def get_guide_img(battle: str) -> Union[bytes, str]:
         battle = 'H' + battle[:-1]
 
     img = None
-    path = HEHEDI_GUIDE_PATH / f'{battle}.jpg'
+    path = HEHEDI_LEVEL_GUIDE_PATH / f'{battle}.jpg'
     if guide_source == 'hehedi' and path.exists():
         img = Image.open(path)
     elif guide_source == 'bawiki':

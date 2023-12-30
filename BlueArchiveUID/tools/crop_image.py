@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image
 
 path = Path(__file__).parent
-CPATH = path / 'all'
+CPATH = path / 'all_image'
 
 CPATH.mkdir(exist_ok=True)
 
