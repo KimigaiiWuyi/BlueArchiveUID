@@ -9,6 +9,7 @@ from gsuid_core.utils.plugins_config.gs_config import StringConfig
 from gsuid_core.utils.plugins_config.models import (
     GSC,
     GsStrConfig,
+    GsBoolConfig,
     GsListStrConfig,
 )
 
@@ -23,14 +24,17 @@ CONIFG_DEFAULT: Dict[str, GSC] = {
     'guide_source': GsStrConfig(
         '优先攻略源',
         '选择默认优先攻略源',
-        'hehedi',
-        ['hehedi', 'bawiki'],
+        'all',
+        ['hehedi', 'bawiki', 'all'],
     ),
     'char_guide_source': GsListStrConfig(
         '发送角色攻略源',
         '可选择多个',
         ['hehedi', 'bawiki'],
         ['hehedi', 'bawiki'],
+    ),
+    'disable_xtzx_url': GsBoolConfig(
+        '关闭ba总力战中URL的展示', '防止官方Bot因为没备案URL无法发送', False
     ),
 }
 

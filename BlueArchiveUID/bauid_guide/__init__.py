@@ -36,7 +36,12 @@ async def send_ba_char_pic(bot: Bot, ev: Event):
 
 @sv_ba_guide.on_prefix(('ba攻略', 'BA攻略'))
 async def send_ba_stage_pic(bot: Bot, ev: Event):
-    await bot.send(await get_guide_img(ev.text))
+    im = await get_guide_img(ev.text)
+    if isinstance(im, str):
+        await bot.send(im)
+    else:
+        for img in im:
+            await bot.send(img)
 
 
 @sv_ba_guide.on_fullmatch(('ba活动攻略', 'BA活动攻略'))

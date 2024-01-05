@@ -1,11 +1,14 @@
 import datetime
 from typing import Union
 
+from ..utils.ba_config import ba_config
 from ..utils.ba_api import ba_api, xtzx_api
 
 now_season = 7
 
 SERVER_MAP = {'1': '官服', '2': 'B服'}
+
+disable_xtzx_url: bool = ba_config.get_config('disable_xtzx_url').data
 
 
 async def get_ranking_from_xtzx(
@@ -58,7 +61,11 @@ async def get_ranking_from_xtzx(
     else:
         im_list.append('✅查官服请发【ba总力战】')
 
-    im_list.append('✅数据来源https://arona.icu/')
+    if disable_xtzx_url:
+        im_list.append('✅数据来源arona.icu')
+    else:
+        im_list.append('✅数据来源https://arona.icu/')
+
     im_list.append(f'✅最后更新于: {last_update}')
 
     return '\n'.join(im_list)
