@@ -62,7 +62,7 @@ async def get_ranking_from_xtzx(
         im_list.append('✅查官服请发【ba总力战】')
 
     if disable_xtzx_url:
-        im_list.append('✅数据来源arona.icu')
+        im_list.append('✅数据来源 什亭之匣(Arona ICU)')
     else:
         im_list.append('✅数据来源https://arona.icu/')
 
