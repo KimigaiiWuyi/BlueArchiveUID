@@ -1,0 +1,86 @@
+{
+  "基础服务": {
+    "desc": "一些基础的查询功能",
+    "data": [
+      {
+        "name": "ba攻略",
+        "desc": "获取主线任务走格子攻略",
+        "eg": "ba攻略16-3H",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "ba角色攻略",
+        "desc": "获取BA的角色的养成攻略",
+        "eg": "ba角色攻略优香",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "ba活动攻略",
+        "desc": "获取当期活动攻略",
+        "eg": "ba活动攻略",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      }
+    ]
+  },
+  "什亭之匣相关": {
+    "desc": "数据来源arona.icu，需要申请Token使用",
+    "data": [
+      {
+        "name": "ba总力战",
+        "desc": "获取当期国服总力战的档线信息",
+        "eg": "ba总力战",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "ba总力战b",
+        "desc": "获取当期B服总力战的档线信息",
+        "eg": "ba总力战b",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      }
+    ]
+  },
+  "计算服务": {
+    "desc": "一些和计算相关的服务",
+    "data": [
+      {
+        "name": "ba用时",
+        "desc": "根据分数计算用时",
+        "eg": "ba用时寿司1300w",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      },
+      {
+        "name": "ba算分",
+        "desc": "根据时间计算分数",
+        "eg": "ba算分ex寿司剩1:23.43",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      }
+    ]
+  },
+  "其他服务": {
+    "desc": "一些杂项服务",
+    "data": [
+      {
+        "name": "ba帮助",
+        "desc": "呼出该帮助界面",
+        "eg": "ba帮助",
+        "need_ck": false,
+        "need_sk": false,
+        "need_admin": false
+      }
+    ]
+  }
+}
