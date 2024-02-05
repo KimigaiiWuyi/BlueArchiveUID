@@ -17,7 +17,9 @@ from .api import (
 TOKEN = ba_config.get_config('xtzx_token').data
 
 if not TOKEN:
-    logger.warning('[BaUID] 如未配置 什亭之匣Token , ba总力战相关功能将无法正常使用')
+    logger.warning(
+        '[BaUID] 如未配置 什亭之匣Token , ba总力战相关功能将无法正常使用'
+    )
 
 
 class BaseBAApi:
