@@ -11,7 +11,7 @@
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": "explicit"
     }
   },
   "python.autoComplete.extraPaths": [
@@ -27,7 +27,7 @@
   "python.linting.flake8CategorySeverity.F": "Warning",
   "python.linting.flake8CategorySeverity.E": "Warning",
   "python.analysis.extraPaths": [
-    "${workspaceFolder}/../../../../"
+    "${workspaceFolder}/../../../"
   ],
   "python.analysis.include": [
     "${workspaceFolder}/../../../"

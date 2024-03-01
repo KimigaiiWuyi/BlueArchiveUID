@@ -10,6 +10,7 @@ BATTLE_URL = (
 
 XTZX_API = 'https://api.arona.icu'
 XTZX_RAID_LIST = XTZX_API + '/api/season/list'
-XTZX_RAID_RANK = XTZX_API + '/api/rank/list/{}/2/{}?page=1&size=26'
-XTZX_RAID_TOP = XTZX_API + '/api/rank/list_top?server={}&season={}'
+XTZX_RAID_RANK = XTZX_API + '/api/v2/rank/list'
+XTZX_RAID_TOP = XTZX_API + '/api/v2/rank/list_top'
+XTZX_RAID_CHART_PERSON = XTZX_API + '/api/v2/rank/season/lastRank/charts'
 XTZX_RAID_CHART = XTZX_API + '/raid/new/charts/{}?s={}'

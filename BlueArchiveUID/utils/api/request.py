@@ -11,12 +11,15 @@ from .api import (
     XTZX_RAID_LIST,
     XTZX_RAID_RANK,
     XTZX_RAID_CHART,
+    XTZX_RAID_CHART_PERSON,
 )
 
 TOKEN = ba_config.get_config('xtzx_token').data
 
 if not TOKEN:
-    logger.warning('[BaUID] 如未配置 什亭之匣Token , ba总力战相关功能将无法正常使用')
+    logger.warning(
+        '[BaUID] 如未配置 什亭之匣Token , ba总力战相关功能将无法正常使用'
+    )
 
 
 class BaseBAApi:
@@ -78,6 +81,32 @@ class XTZXApi(BaseBAApi):
             return None
         return data[0]
 
+    async def get_xtzx_raid_chart_person(
+        self,
+        season: Union[str, int, None] = None,
+        server_id: Union[str, int] = 1,
+    ) -> Optional[Dict]:
+        if season is None:
+            now_season = await self.get_now_season_data()
+            if now_season is None:
+                return None
+            season = int(now_season['season'])
+        data = await self._ba_request(
+            XTZX_RAID_CHART_PERSON,
+            'POST',
+            json={
+                "server": int(server_id),
+                "season": int(season),
+            },
+        )
+        if (
+            isinstance(data, Dict)
+            and 'data' in data
+            and 'code' in data
+            and data['code'] == 200
+        ):
+            return data['data']
+
     async def get_xtzx_raid_chart(
         self,
         season: Union[str, int, None] = None,
@@ -108,8 +137,12 @@ class XTZXApi(BaseBAApi):
             now_season = await self.get_now_season_data()
             if now_season is None:
                 return None
-            season = now_season['season']
-        data = await self._ba_request(XTZX_RAID_TOP.format(server_id, season))
+            season = int(now_season['season'])
+        data = await self._ba_request(
+            XTZX_RAID_TOP,
+            'POST',
+            json={'server': int(server_id), 'season': int(season)},
+        )
         if (
             isinstance(data, Dict)
             and 'data' in data
@@ -127,8 +160,18 @@ class XTZXApi(BaseBAApi):
             now_season = await self.get_now_season_data()
             if now_season is None:
                 return None
-            season = now_season['season']
-        data = await self._ba_request(XTZX_RAID_RANK.format(server_id, season))
+            season = int(now_season['season'])
+        data = await self._ba_request(
+            XTZX_RAID_RANK,
+            'POST',
+            json={
+                'server': int(server_id),
+                'season': int(season),
+                'type': 2,
+                'page': 1,
+                'size': 26,
+            },
+        )
         if isinstance(data, Dict) and 'code' in data and data['code'] == 200:
             return data
 

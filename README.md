@@ -57,6 +57,7 @@
 - *[AronaBot](https://tutorial.arona.diyigemt.com/home)* - 上面Bot项目的数据查询网站
 - [什亭之匣](https://arona.icu/main) - ba总力战相关功能的数据源
 - [@FujiwaraChikaa](https://github.com/FujiwaraChikaa) - `ba算分`和`ba用时`功能提供者
+- [@hehedi233](https://space.bilibili.com/3370967) - `ba攻略`中的`hehedi`攻略源提供
 
 ## 丨其他
 
