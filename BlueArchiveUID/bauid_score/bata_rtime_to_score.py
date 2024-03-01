@@ -13,7 +13,7 @@ def tsf_level(msg):
     # 替换掉hod和goz这俩特别的英文名Boss
     lmsg = msg.lower().replace('hod', '霍德').replace('goz', '戈兹')
     # 匹配开头两个字母
-    match1 = re.search(r'^[a-zA-Z]{2}', lmsg)
+    match1 = re.search(r'[a-zA-Z]{2}', lmsg)
     if match1:
         matched_level = match1.group()
         # 双字母难度
@@ -24,7 +24,7 @@ def tsf_level(msg):
         else:
             return '输入难度有误'
     else:
-        match2 = re.search(r'^[a-zA-Z]{1}', lmsg)
+        match2 = re.search(r'[a-zA-Z]{1}', lmsg)
         if match2:
             matched_level = match2.group()
             # 单字母难度
@@ -132,24 +132,42 @@ def tsf_kntm(msg):
 def rtime_score(boss, kntm, level):
     kn = kntm[0]
     rtm = kntm[1]
+
     if boss == 'ba3':
         utm = kn * 180 - rtm
         if utm < 720:
-            score = (911000 - utm * 400) * 2**level
-            return int(score)
+            if level in [0, 1, 2, 3, 4]:
+                score = (911000 - utm * 400) * 2**level
+            elif level == 5:
+                score = 26161600 - utm * 12800
+            elif level == 6:
+                score = 39716000 - utm * 12800
         elif utm >= 720:
-            score = 623000 * 2**level
-            return int(score)
+            if level in [0, 1, 2, 3, 4]:
+                score = 623000 * 2**level
+            elif level == 5:
+                score = 16945600
+            elif level == 6:
+                score = 30500000
     elif boss == 'ba4':
         utm = kn * 240 - rtm
         if utm < 960:
-            score = (959000 - utm * 400) * 2**level
-            return int(score)
+            if level in [0, 1, 2, 3, 4]:
+                score = (959000 - utm * 400) * 2**level
+            elif level == 5:
+                score = 27928000 - utm * 12800
+            elif level == 6:
+                score = 40348000 - utm * 12800
         elif utm >= 960:
-            score = 575000 * 2**level
-            return int(score)
+            if level in [0, 1, 2, 3, 4]:
+                score = 575000 * 2**level
+            elif level == 5:
+                score = 15640000
+            elif level == 6:
+                score = 28060000
     else:
         return '未知Boss时间类型'
+    return int(score)
 
 
 # 输入消息计算总力战分数的函数
