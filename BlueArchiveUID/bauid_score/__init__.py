@@ -14,20 +14,20 @@ sv_ba_time = SV('BA总力战算用时')
 async def send_score_msg(bot: Bot, ev: Event):
     if not ev.text:
         await bot.send(
-            '输入 难度+Boss+剩/用x:xx.xxx 算总力战分数\n'
-            '分钟和秒用:分割，秒和毫秒用.分割\n'
-            '支持省略分钟，支持省略毫秒，支持同时省略\n'
-            '输入示例：ex寿司剩/用1:23.433 23.433 1:23 23'
+            '输入 难度+Boss+剩/用+分:秒.毫秒 算总力战分数\n'
+            '支持省略分钟，支持省略毫秒，无符号默认为秒\n'
+            '支持多刀计算，多个时间用空格间隔\n'
+            '输入示例：ex寿司剩/用1:23.333 45.666 1:23 45'
         )
     else:
         if '剩' in ev.text:
-            sc = bata_rtime_score(ev.text.strip())
+            sc = bata_rtime_score(ev.text.replace(' ', ''))
             await bot.send(sc)
         elif '用' in ev.text:
-            sc = bata_utime_score(ev.text.strip())
+            sc = bata_utime_score(ev.text.replace(' ', ''))
             await bot.send(sc)
         else:
-            await bot.send('是用时还是剩时呢？')
+            await bot.send('是用时还是剩时？请重新发送指令')
 
 
 @sv_ba_time.on_command(('ba用时', 'BA用时'))
