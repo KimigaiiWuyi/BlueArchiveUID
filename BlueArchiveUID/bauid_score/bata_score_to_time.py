@@ -89,11 +89,11 @@ def score_level(boss, score):
             return 3
         elif score >= 9968000 and score < 14576000:
             return 4
-        elif score >= 19936000 and score <= 29152000:
+        elif score >= 16945600 and score <= 26161600:
             return 5
-        elif score >= 39872000 and score <= 58304000:
+        elif score >= 30500000 and score <= 39716000:
             return 6
-        elif score > 58304000:
+        elif score > 39716000:
             return '分数高于上限！'
         else:
             return '分数不存在！'
@@ -111,11 +111,11 @@ def score_level(boss, score):
             return 3
         elif score >= 9200000 and score < 15344000:
             return 4
-        elif score >= 18400000 and score <= 30688000:
+        elif score >= 15640000 and score <= 27928000:
             return 5
-        elif score >= 36800000 and score <= 61376000:
+        elif score >= 28060000 and score <= 40348000:
             return 6
-        elif score > 61376000:
+        elif score > 40348000:
             return '分数高于上限！'
         else:
             return '分数不存在！'
@@ -126,13 +126,22 @@ def score_level(boss, score):
 # 使用Boss时间类型(str)、总力战分数(int)、难度指数(int)来计算总力战用时的函数
 def score_time(boss, score, level):
     if boss == 'ba3':
-        batime3 = (911000 - score * 2 ** (-level)) / 400
-        return batime3
+        if level in [1, 2, 3, 4]:
+            batime = (911000 - score * 2 ** (-level)) / 400
+        elif level == 5:
+            batime = (26161600 - score) / 12800
+        elif level == 6:
+            batime = (39716000 - score) / 12800
     elif boss == 'ba4':
-        batime4 = (959000 - score * 2 ** (-level)) / 400
-        return batime4
+        if level in [1, 2, 3, 4]:
+            batime = (959000 - score * 2 ** (-level)) / 400
+        elif level == 5:
+            batime = (27928000 - score) / 12800
+        elif level == 6:
+            batime = (40348000 - score) / 12800
     else:
         return '未知Boss时间类型'
+    return batime
 
 
 # 输入消息计算总力战用时并提示难度的函数

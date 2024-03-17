@@ -2,7 +2,6 @@
 # 请注意！分钟和秒用冒号分割！秒和毫秒用点分割！
 # 支持多个时间计算，支持省略分钟，支持省略毫秒，支持同时省略，只需空格+下一个用时，输入示例：“ex寿司用1:23.433 23.433 1:23 23”
 
-
 from .bata_rtime_to_score import tsf_kntm, tsf_level, tsf_boss_t
 
 
@@ -11,20 +10,37 @@ def utime_score(boss, kntm, level):
     utm = kntm[1]
     if boss == 'ba3':
         if utm < 720:
-            score = (911000 - utm * 400) * 2**level
-            return int(score)
+            if level in [0, 1, 2, 3, 4]:
+                score = (911000 - utm * 400) * 2**level
+            elif level == 5:
+                score = 26161600 - utm * 12800
+            elif level == 6:
+                score = 39716000 - utm * 12800
         elif utm >= 720:
-            score = 623000 * 2**level
-            return int(score)
+            if level in [0, 1, 2, 3, 4]:
+                score = 623000 * 2**level
+            elif level == 5:
+                score = 16945600
+            elif level == 6:
+                score = 30500000
     elif boss == 'ba4':
         if utm < 960:
-            score = (959000 - utm * 400) * 2**level
-            return int(score)
+            if level in [0, 1, 2, 3, 4]:
+                score = (959000 - utm * 400) * 2**level
+            elif level == 5:
+                score = 27928000 - utm * 12800
+            elif level == 6:
+                score = 40348000 - utm * 12800
         elif utm >= 960:
-            score = 575000 * 2**level
-            return int(score)
+            if level in [0, 1, 2, 3, 4]:
+                score = 575000 * 2**level
+            elif level == 5:
+                score = 15640000
+            elif level == 6:
+                score = 28060000
     else:
         return '未知Boss时间类型'
+    return int(score)
 
 
 # 输入消息计算总力战分数的函数
