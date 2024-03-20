@@ -1,10 +1,11 @@
 # 根据输入“赛季n 最高n”（可省略汉字，两个名次间保留空格）计算竞技场挖矿剩余青辉石的插件，输入示例：“赛季12 最高3”或“12 3”
 # 可省略最高名次，默认历史第一挖完\n 输入示例：“赛季12”或“12”
 import re
+from typing import List
 
 
 # 将大于1000的名次格式化处理为'xx01'的函数
-def rank_format(rank):
+def rank_format(rank: int):
     if rank > 10001:
         rank = 1 + (rank // 1000) * 1000
     elif rank < 10000 and rank > 1001:
@@ -15,7 +16,7 @@ def rank_format(rank):
 
 
 # 从消息匹配名次并返回名次(list)的函数
-def tsf_rank(msg):
+def tsf_rank(msg: str):
     smsg = msg.split()
     # 判断列表长度，=2未省略最高名次
     if len(smsg) == 2:
@@ -23,9 +24,9 @@ def tsf_rank(msg):
         match2 = re.search(r'\d+', smsg[1])
         if match1 is not None and match2 is not None:
             season_rank = match1.group(0)
-            season_rank = int(str(season_rank))
+            season_rank = int(season_rank)
             highest_rank = match2.group(0)
-            highest_rank = int(str(highest_rank))
+            highest_rank = int(highest_rank)
             if season_rank > 15001 or highest_rank > 15001:
                 return '排名最低为15001请重新输入'
             else:
@@ -51,7 +52,7 @@ def tsf_rank(msg):
 
 
 # 赛季名次挖矿计算函数
-def season_mine(season):
+def season_mine(season: int):
     # 名次大于1000时
     if season > 1000:
         count = 0
@@ -87,7 +88,7 @@ def season_mine(season):
 
 
 # 最高名次挖矿计算函数
-def highest_mine(highest):
+def highest_mine(highest: int):
     # 名次大于1000时
     if highest > 1000:
         count = 0
@@ -123,7 +124,7 @@ def highest_mine(highest):
 
 
 # 使用名次(list)来计算竞技场挖矿剩余青辉石的函数
-def rank_pyroxene(rankls):
+def rank_pyroxene(rankls: List):
     if len(rankls) == 1:
         rk = rankls[0]
         pyroxene = season_mine(rk)
@@ -138,7 +139,9 @@ def rank_pyroxene(rankls):
 
 
 # 输入消息计算竞技场挖矿剩余青辉石的函数
-def bajjc_rank_to_pyroxene(msg):
+def bajjc_rank_to_pyroxene(msg: str):
     rankls = tsf_rank(msg)
+    if isinstance(rankls, str):
+        return rankls
     pyroxene = rank_pyroxene(rankls)
     return str(pyroxene)
