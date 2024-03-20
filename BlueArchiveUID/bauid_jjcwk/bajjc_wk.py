@@ -113,11 +113,11 @@ def highest_mine(highest: int):
         mine = count * 40 + 4220
     # 名次小于等于1000时
     elif highest <= 1000 and highest > 500:
-        mine = (highest - 501) * 2 + 1270
+        mine = (highest - 501) * 2 + 3220
     elif highest <= 500 and highest > 100:
-        mine = (highest - 101) * 5 + 470
+        mine = (highest - 101) * 5 + 1220
     elif highest <= 100 and highest > 10:
-        mine = (highest - 11) * 8 + 200
+        mine = (highest - 11) * 8 + 500
     elif highest <= 10:
         mine = (highest - 1) * 50
     return mine
