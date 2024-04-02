@@ -1,8 +1,9 @@
-from typing import Any, Dict, List, Union, Literal, Optional
+from typing import Any, Dict, List, Union, Literal, Optional, cast
 
 from gsuid_core.logger import logger
 from aiohttp import FormData, TCPConnector, ClientSession, ContentTypeError
 
+from .models import FriendData
 from ..ba_config import ba_config
 from .api import (
     ARONA_URL,
@@ -11,6 +12,7 @@ from .api import (
     XTZX_RAID_LIST,
     XTZX_RAID_RANK,
     XTZX_RAID_CHART,
+    XTZX_FRIEND_DATA,
     XTZX_RAID_CHART_PERSON,
 )
 
@@ -174,6 +176,27 @@ class XTZXApi(BaseBAApi):
         )
         if isinstance(data, Dict) and 'code' in data and data['code'] == 200:
             return data
+
+    async def get_xtzx_friend_data(
+        self,
+        friend_code: str,
+        server_id: Union[str, int] = 1,
+    ) -> Union[int, FriendData]:
+        data = await self._ba_request(
+            XTZX_FRIEND_DATA,
+            'POST',
+            json={
+                "server": int(server_id),
+                "friend": friend_code,
+            },
+        )
+        if isinstance(data, Dict) and 'code' in data:
+            if data['code'] == 200:
+                return cast(FriendData, data['data'])
+            else:
+                return data['code']
+        else:
+            return -500
 
     async def _ba_request(
         self,

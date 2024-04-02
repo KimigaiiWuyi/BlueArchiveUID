@@ -1,0 +1,1052 @@
+{
+    "10000": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10001": {
+        "ex": "COMMON_SKILLICON_DOTHEAL",
+        "nm": "COMMON_SKILLICON_FAN",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "10002": {
+        "ex": "COMMON_SKILLICON_LINE",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10003": {
+        "ex": "SKILLICON_HIHUMI_EXSKILL",
+        "nm": "COMMON_SKILLICON_WEAPONDEBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_REGENCOST"
+    },
+    "10004": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_RELOAD",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10005": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_DOTHEAL",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_SHIELD"
+    },
+    "10006": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10007": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_MARK",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10008": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_FURY",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10009": {
+        "ex": "COMMON_SKILLICON_HEAL",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10010": {
+        "ex": "SKILLICON_SHIROKO_EXSKILL",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10011": {
+        "ex": "COMMON_SKILLICON_FORMCHANGE",
+        "nm": "COMMON_SKILLICON_REGENCOST",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10012": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "10013": {
+        "ex": "COMMON_SKILLICON_FORMCHANGE",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_RELOAD"
+    },
+    "13000": {
+        "ex": "COMMON_SKILLICON_STATDEBUFF",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATDEBUFF"
+    },
+    "13001": {
+        "ex": "COMMON_SKILLICON_ZONE",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_BURNNIG"
+    },
+    "13002": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "13003": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_RELOAD",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "13004": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "13005": {
+        "ex": "COMMON_SKILLICON_FEAR",
+        "nm": "COMMON_SKILLICON_FEAR",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "13006": {
+        "ex": "SKILLICON_MUTSUKI_EXSKILL",
+        "nm": "COMMON_SKILLICON_BATTLEITEM",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "13007": {
+        "ex": "COMMON_SKILLICON_LINE",
+        "nm": "COMMON_SKILLICON_IMMORTAL",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "13008": {
+        "ex": "COMMON_SKILLICON_RELOAD",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "13009": {
+        "ex": "COMMON_SKILLICON_PROVOKE",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "13010": {
+        "ex": "COMMON_SKILLICON_SHIELD",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_HEAL"
+    },
+    "16000": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "16001": {
+        "ex": "COMMON_SKILLICON_EVASION",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "16002": {
+        "ex": "COMMON_SKILLICON_BATTLEITEM",
+        "nm": "COMMON_SKILLICON_FAN",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "16003": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "16004": {
+        "ex": "COMMON_SKILLICON_IGNOREDELAY",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20000": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20001": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20002": {
+        "ex": "COMMON_SKILLICON_ZONE",
+        "nm": "COMMON_SKILLICON_POISON",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "23000": {
+        "ex": "SKILLICON_AIRI_EXSKILL",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "23001": {
+        "ex": "COMMON_SKILLICON_BATTLEITEM",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "23002": {
+        "ex": "COMMON_SKILLICON_DOTHEAL",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "23003": {
+        "ex": "COMMON_SKILLICON_STUNNED",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "23004": {
+        "ex": "SKILLICON_UTAHA_EXSKILL",
+        "nm": "SKILLICON_UTAHA_EXSKILL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "23005": {
+        "ex": "COMMON_SKILLICON_HEAL",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "26000": {
+        "ex": "COMMON_SKILLICON_HEAL",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "26001": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_WEAPONDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "26002": {
+        "ex": "COMMON_SKILLICON_FOODDEBUFF",
+        "nm": "COMMON_SKILLICON_WEAPONDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "26003": {
+        "ex": "COMMON_SKILLICON_BATTLEITEM",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "26004": {
+        "ex": "COMMON_SKILLICON_OBSTACLE",
+        "nm": "COMMON_SKILLICON_SHIELD",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "26005": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "20003": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10014": {
+        "ex": "COMMON_SKILLICON_EVASION",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "23006": {
+        "ex": "COMMON_SKILLICON_OBSTACLE",
+        "nm": "COMMON_SKILLICON_WEAPONDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10015": {
+        "ex": "COMMON_SKILLICON_BEAM",
+        "nm": "SKILLICON_ARIS_PUBLICSKILL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_ARIS_EXTRAPASSIVESKILL"
+    },
+    "10016": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_MIDORI_EXTRAPASSIVESKILL"
+    },
+    "13011": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_MOMOI_EXTRAPASSIVESKILL"
+    },
+    "10017": {
+        "ex": "SKILLICON_CHERINO_EXSKILL",
+        "nm": "COMMON_SKILLICON_MARK",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_CHERINO_EXTRAPASSIVESKILL"
+    },
+    "26006": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10018": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10019": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "23007": {
+        "ex": "COMMON_SKILLICON_DOTHEAL",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "10020": {
+        "ex": "SKILLICON_KOHARU_EXSKILL",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "10021": {
+        "ex": "COMMON_SKILLICON_CHILL",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STATDEBUFF"
+    },
+    "20004": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "16005": {
+        "ex": "COMMON_SKILLICON_FORMCHANGE",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20005": {
+        "ex": "SKILLICON_CH0058_EXSKILL",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10022": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_STUNNED",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10023": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_CHILL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_CHILL"
+    },
+    "16006": {
+        "ex": "COMMON_SKILLICON_STUNNED",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STUNNED"
+    },
+    "10024": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_LINE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10025": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_CH0066_EXTRAPASSIVESKILL"
+    },
+    "13012": {
+        "ex": "COMMON_SKILLICON_CLOUD",
+        "nm": "COMMON_SKILLICON_WEAPONDEBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATDEBUFF"
+    },
+    "20006": {
+        "ex": "COMMON_SKILLICON_RECZONE",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10026": {
+        "ex": "COMMON_SKILLICON_EVASION",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10027": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10028": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10029": {
+        "ex": "COMMON_SKILLICON_HEAL",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "23008": {
+        "ex": "COMMON_SKILLICON_SHIELD",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "20007": {
+        "ex": "SKILLICON_CH9999_EXSKILL",
+        "nm": "SKILLICON_CH9999_PUBLICSKILL",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "SKILLICON_CH9999_EXTRAPASSIVESKILL"
+    },
+    "20008": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20009": {
+        "ex": "SKILLICON_CH0164_EXSKILL",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10030": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_SHIELD"
+    },
+    "16007": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "20010": {
+        "ex": "COMMON_SKILLICON_HEAL",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10031": {
+        "ex": "COMMON_SKILLICON_BOUNCEPROJECTILE",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "SKILLICON_ARUNEWYEAR_EXTRAPASSIVESKILL"
+    },
+    "10032": {
+        "ex": "COMMON_SKILLICON_DONUT",
+        "nm": "COMMON_SKILLICON_LINE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_MUSTUKINEWYEAR_EXTRAPASSIVESKILL"
+    },
+    "20011": {
+        "ex": "COMMON_SKILLICON_DONUT",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "10033": {
+        "ex": "SKILLICON_WAKAMO_EXSKILL",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "16008": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20012": {
+        "ex": "COMMON_SKILLICON_TRUCK",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20013": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_WEAPONDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "10034": {
+        "ex": "COMMON_SKILLICON_BATTLEITEM",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "10035": {
+        "ex": "COMMON_SKILLICON_COSTDECREASE",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10036": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10037": {
+        "ex": "COMMON_SKILLICON_DONUT",
+        "nm": "COMMON_SKILLICON_IMMORTAL",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "10038": {
+        "ex": "COMMON_SKILLICON_STUNNED",
+        "nm": "COMMON_SKILLICON_FAN",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "20014": {
+        "ex": "COMMON_SKILLICON_STUNNED",
+        "nm": "COMMON_SKILLICON_BURNNIG",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10039": {
+        "ex": "COMMON_SKILLICON_DAMAGEBYHIT_DAMAGED",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20015": {
+        "ex": "COMMON_SKILLICON_SHIELD",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "20016": {
+        "ex": "SKILLICON_CH0156_EXSKILL",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "16009": {
+        "ex": "COMMON_SKILLICON_BURNNIG",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_CH0113_EXTRAPASSIVE"
+    },
+    "10040": {
+        "ex": "SKILLICON_CH0114_EXSKILL",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_HEAL"
+    },
+    "10041": {
+        "ex": "COMMON_SKILLICON_ZONE",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "20017": {
+        "ex": "COMMON_SKILLICON_STATDEBUFF",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10042": {
+        "ex": "COMMON_SKILLICON_HEAL",
+        "nm": "COMMON_SKILLICON_CLOUD",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "10043": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "SKILLICON_CH0175_PUBLICSKILL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10044": {
+        "ex": "COMMON_SKILLICON_FORMCHANGE",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "26007": {
+        "ex": "SKILLICON_CH0176_EXSKILL",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10045": {
+        "ex": "COMMON_SKILLICON_BULLETTYPEBUFF",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_DUALBUFF",
+        "sub": "COMMON_SKILLICON_REGENCOST"
+    },
+    "26008": {
+        "ex": "COMMON_SKILLICON_BATTLEITEM",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10046": {
+        "ex": "COMMON_SKILLICON_MARK",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10047": {
+        "ex": "COMMON_SKILLICON_STUNNED",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_CHILL"
+    },
+    "10048": {
+        "ex": "COMMON_SKILLICON_AlWAYSCRITICAL",
+        "nm": "COMMON_SKILLICON_AlWAYSCRITICAL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20018": {
+        "ex": "COMMON_SKILLICON_RECZONE",
+        "nm": "COMMON_SKILLICON_STUNNED",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10049": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONDUALEFFECT"
+    },
+    "10050": {
+        "ex": "COMMON_SKILLICON_HEAL",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "SKILLICON_CH0137_EXTRAPASSIVESKILL"
+    },
+    "10051": {
+        "ex": "COMMON_SKILLICON_FORMCHANGE",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10052": {
+        "ex": "COMMON_SKILLICON_STATDEBUFF",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "16010": {
+        "ex": "SKILLICON_CH0181_EXSKILL",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONDUALEFFECT",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "20019": {
+        "ex": "COMMON_SKILLICON_BATTLEITEM",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10053": {
+        "ex": "COMMON_SKILLICON_BATTLEITEM",
+        "nm": "COMMON_SKILLICON_SHIELD",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_BULLETTYPEBUFF"
+    },
+    "10054": {
+        "ex": "COMMON_SKILLICON_HEAL",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_HEAL"
+    },
+    "16011": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "20020": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_REGENCOST"
+    },
+    "10055": {
+        "ex": "COMMON_SKILLICON_RECZONE",
+        "nm": "COMMON_SKILLICON_WEAPONDUALEFFECT",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_CIRCLERADIUSINCREASE"
+    },
+    "10056": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "20021": {
+        "ex": "COMMON_SKILLICON_DOTHEAL",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10057": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STATDEBUFF"
+    },
+    "20022": {
+        "ex": "COMMON_SKILLICON_COSTDECREASE",
+        "nm": "COMMON_SKILLICON_SHIELD",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "16012": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10058": {
+        "ex": "COMMON_SKILLICON_EVASION",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_STATBUFF"
+    },
+    "10059": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_CH0069_EXTRAPASSIVESKILL"
+    },
+    "10060": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_ZONE",
+        "ps": "COMMON_SKILLICON_DUALBUFF",
+        "sub": "COMMON_SKILLICON_HEAL"
+    },
+    "20023": {
+        "ex": "COMMON_SKILLICON_ACCUMULATE",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10061": {
+        "ex": "COMMON_SKILLICON_MARK",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10062": {
+        "ex": "SKILLICON_CH0187_EXSKILL",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "20024": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10063": {
+        "ex": "SKILLICON_CH0198_EXSKILL",
+        "nm": "COMMON_SKILLICON_BOUNCEPROJECTILE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10064": {
+        "ex": "COMMON_SKILLICON_BULLETTYPEBUFF",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_BULLETTYPEBUFF"
+    },
+    "20025": {
+        "ex": "COMMON_SKILLICON_STATDEBUFF",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_REGENCOST"
+    },
+    "10065": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10066": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_BULLETTYPEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_CH0200_EXTRAPASSIVE"
+    },
+    "10067": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_BULLETTYPEBUFF"
+    },
+    "26009": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10068": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_DOTHEAL",
+        "ps": "COMMON_SKILLICON_DUALBUFF",
+        "sub": "COMMON_SKILLICON_PROVOKE"
+    },
+    "10069": {
+        "ex": "COMMON_SKILLICON_HEAL",
+        "nm": "COMMON_SKILLICON_FAN",
+        "ps": "COMMON_SKILLICON_DUALBUFF",
+        "sub": "COMMON_SKILLICON_DOTHEAL"
+    },
+    "10070": {
+        "ex": "COMMON_SKILLICON_WEAPONDEBUFF",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20026": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_BULLETTYPEBUFF"
+    },
+    "10071": {
+        "ex": "COMMON_SKILLICON_STATDEBUFF",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_REGENCOST"
+    },
+    "10072": {
+        "ex": "COMMON_SKILLICON_STATDEBUFF",
+        "nm": "COMMON_SKILLICON_FAN",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "26010": {
+        "ex": "COMMON_SKILLICON_AlWAYSCRITICAL",
+        "nm": "COMMON_SKILLICON_FAN",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20027": {
+        "ex": "COMMON_SKILLICON_STATDEBUFF",
+        "nm": "COMMON_SKILLICON_COSTDECREASE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_REGENCOST"
+    },
+    "10073": {
+        "ex": "COMMON_SKILLICON_BULLETTYPEBUFF",
+        "nm": "COMMON_SKILLICON_BULLETTYPEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20028": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_BOUNCEPROJECTILE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "16013": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10074": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_CH0209_EXTRAPASSIVESKILL"
+    },
+    "20029": {
+        "ex": "COMMON_SKILLICON_OBSTACLE",
+        "nm": "COMMON_SKILLICON_SHIELD",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10075": {
+        "ex": "COMMON_SKILLICON_DAMAGEBYHIT_DAMAGED",
+        "nm": "COMMON_SKILLICON_BURNNIG",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "13013": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10076": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "20030": {
+        "ex": "SKILLICON_CH0193_EXSKILL",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10077": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "COMMON_SKILLICON_BULLETTYPEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10078": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_CH0089_EXTRAPASSIVESKILL"
+    },
+    "20031": {
+        "ex": "COMMON_SKILLICON_HEAL",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10079": {
+        "ex": "SKILLICON_CH9998_EXSKILL",
+        "nm": "SKILLICON_CH9998_PUBLICSKILL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10080": {
+        "ex": "SKILLICON_CH9997_EXSKILL",
+        "nm": "COMMON_SKILLICON_CIRCLE",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "SKILLICON_CH9997_EXSKILL"
+    },
+    "26011": {
+        "ex": "SKILLICON_CH9996_EXSKILL",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10081": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_CH0161_EXTRAPASSIVESKILL"
+    },
+    "10082": {
+        "ex": "COMMON_SKILLICON_FAN",
+        "nm": "SKILLICON_CH0224_PUBLICSKILL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10083": {
+        "ex": "COMMON_SKILLICON_CROSS",
+        "nm": "COMMON_SKILLICON_BULLETTYPEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_CH0225_EXTRAPASSIVESKILL"
+    },
+    "20032": {
+        "ex": "COMMON_SKILLICON_BATTLEITEM",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_WEAPONBUFF"
+    },
+    "10084": {
+        "ex": "COMMON_SKILLICON_CONFUSION",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_EXTRADAMAGE"
+    },
+    "10085": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_CH0233_ExtraPassive"
+    },
+    "10087": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_TARGET",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "SKILLICON_CH0231_EXTRAPASSIVESKILL"
+    },
+    "16014": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_WEAPONDEBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_HEAL"
+    },
+    "20033": {
+        "ex": "COMMON_SKILLICON_CIRCLE",
+        "nm": "COMMON_SKILLICON_STATDEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_BULLETTYPEBUFF"
+    },
+    "10086": {
+        "ex": "SKILLICON_CH0230_EXSKILL",
+        "nm": "COMMON_SKILLICON_BULLETTYPEBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_BULLETTYPEBUFF"
+    },
+    "10088": {
+        "ex": "COMMON_SKILLICON_TARGET",
+        "nm": "COMMON_SKILLICON_WEAPONBUFF",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "SKILLICON_CH0239_EXTRAPASSIVESKILL"
+    },
+    "10089": {
+        "ex": "COMMON_SKILLICON_WEAPONBUFF",
+        "nm": "COMMON_SKILLICON_HEAL",
+        "ps": "COMMON_SKILLICON_WEAPONBUFF",
+        "sub": "COMMON_SKILLICON_STATDEBUFF"
+    },
+    "20034": {
+        "ex": "COMMON_SKILLICON_TRUCK",
+        "nm": "COMMON_SKILLICON_STATBUFF",
+        "ps": "COMMON_SKILLICON_STATBUFF",
+        "sub": "COMMON_SKILLICON_BULLETTYPEBUFF"
+    }
+}

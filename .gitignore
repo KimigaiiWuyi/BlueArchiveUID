@@ -665,9 +665,8 @@ FodyWeavers.xsd
 ### CI ###
 result.txt
 
-### GenshinUID ###
-*.xlsx
-all_image
+### BADATA ###
+SchaleDB
 
 ### Debug ###
 testnb2/
