@@ -17,18 +17,6 @@ equipId2Icon_path = MAP / "equipId2Icon_map.json"
 studentSkill2Icon_path = MAP / "studentSkill2Icon_map.json"
 weaponId2Nmae_path = MAP / "weaponId2Nmae_map.json"
 
-with open(student_data_path, 'r', encoding='UTF-8') as f:
-    student_data = msgjson.decode(
-        f.read(),
-        type=List[Dict[str, Any]],
-    )
-
-with open(equip_data_path, 'r', encoding='UTF-8') as f:
-    equip_data = msgjson.decode(
-        f.read(),
-        type=List[Dict[str, Any]],
-    )
-
 
 def make_id2name():
     result = {}
@@ -93,4 +81,16 @@ def make_map():
 
 
 if __name__ == '__main__':
+    with open(student_data_path, 'r', encoding='UTF-8') as f:
+        student_data = msgjson.decode(
+            f.read(),
+            type=List[Dict[str, Any]],
+        )
+
+    with open(equip_data_path, 'r', encoding='UTF-8') as f:
+        equip_data = msgjson.decode(
+            f.read(),
+            type=List[Dict[str, Any]],
+        )
+
     make_map()
