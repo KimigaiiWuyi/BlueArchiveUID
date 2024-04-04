@@ -52,7 +52,11 @@ async def get_ranking_from_xtzx(
             '120000',
             '200000',
         ]:
-            if rank in data['data'] and data["data"][rank]:
+            if (
+                rank in data['data']
+                and data["data"][rank]
+                and data["data"][rank][-1]
+            ):
                 im_list.append(f'第{rank}名: {data["data"][rank][-1]:,}')
 
     # im_list.append('✅换源请发【总力战档位】')
