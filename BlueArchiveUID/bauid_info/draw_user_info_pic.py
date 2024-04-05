@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Union
+from typing import Dict, Tuple, Union
 
 from PIL import Image, ImageDraw
 from gsuid_core.models import Event
@@ -24,6 +24,7 @@ from ..utils.ba_map import (
     weaponId2Nmae,
     studentId2Name,
     studentId2Type,
+    stageId2AreaNum,
     studentSkill2Icon,
     studentId2weaponIcon,
 )
@@ -35,7 +36,7 @@ weapon_star_full = Image.open(TEXT_PATH / 'weapon_star_full.png')
 weapon_star_empty = Image.open(TEXT_PATH / 'weapon_star_empty.png')
 footer = Image.open(TEXT_PATH / 'footer.png')
 
-COLOR_MAP = {
+COLOR_MAP: Dict[str, Tuple[int, int, int]] = {
     'explosion': (144, 1, 8),
     'pierce': (218, 160, 39),
     'mystic': (34, 111, 155),
@@ -61,7 +62,7 @@ async def draw_user_info_img(
     avatar = await get_event_avatar(ev)
     avatar = await draw_pic_with_ring(avatar, 308)
     title.paste(avatar, (396, 57), avatar)
-    title_draw.text((550, 432), f'UserID: {user_id}', BLACK, cf(30), 'mm')
+    title_draw.text((550, 432), f'UserID: {user_id[:10]}', BLACK, cf(30), 'mm')
 
     img.paste(title, (0, 0), title)
 
@@ -90,16 +91,24 @@ async def draw_user_info_img(
     game_level = str(data['level'])
     friend_count = str(data['friendCount'])
     count_str = f'好友数 {friend_count}/30'
+    nm_stage = data['lastNormalCampaignClearStageId']
+    hd_stage = data['lastHardCampaignClearStageId']
+
+    nms = stageId2AreaNum[str(nm_stage)]
+    hds = stageId2AreaNum[str(hd_stage)]
 
     avatar_card_draw = ImageDraw.Draw(avatar_card)
     avatar_card.paste(game_avatar, (58, 87), game_avatar)
 
-    avatar_card_draw.text((308, 177), game_nickname, GREY, cf(44), 'lm')
-    avatar_card_draw.text((308, 284), game_comment, GREY, cf(28), 'lm')
+    avatar_card_draw.text((414, 114), game_nickname, GREY, cf(44), 'lm')
+    avatar_card_draw.text((414, 281), game_comment, GREY, cf(28), 'lm')
 
-    avatar_card_draw.text((497, 118), count_str, BLACK, cf(25), 'mm')
-    avatar_card_draw.text((669, 118), f'{fcode}', BLACK, cf(25), 'mm')
-    avatar_card_draw.text((816, 118), f'等级{game_level}', BLACK, cf(25), 'mm')
+    avatar_card_draw.text((547, 167), nms, BLACK, cf(25), 'mm')
+    avatar_card_draw.text((696, 167), hds, BLACK, cf(25), 'mm')
+
+    avatar_card_draw.text((569, 224), count_str, BLACK, cf(25), 'mm')
+    avatar_card_draw.text((883, 224), f'{fcode}', BLACK, cf(25), 'mm')
+    avatar_card_draw.text((737, 224), f'等级{game_level}', BLACK, cf(25), 'mm')
 
     img.paste(avatar_card, (0, 491), avatar_card)
 
@@ -165,8 +174,12 @@ async def draw_user_info_img(
                 skill_pic = Image.open(skill_path).resize((36, 38))
 
                 skill = skill_data[s] if skill_data[s] != 10 else 'M'
+                skill_color = GREY if skill != 'M' else student_color
+
                 skill_bg.paste(skill_pic, (25, 21), skill_pic)
-                skill_draw.text((71, 40), f'等级{skill}', GREY, cf(34), 'lm')
+                skill_draw.text(
+                    (70, 40), f'等级{skill}', skill_color, cf(30), 'lm'
+                )
                 assist_card.paste(skill_bg, (312 + 172 * sindex, 96), skill_bg)
 
             assist_card.paste(student_color_pic, (66, 108), student_pic)

@@ -11,6 +11,8 @@ class FriendData(TypedDict):
     comment: str
     level: int
     db: str
+    lastHardCampaignClearStageId: int
+    lastNormalCampaignClearStageId: int
     updateTime: int
     maxFavorRank: int
     echelonType: int

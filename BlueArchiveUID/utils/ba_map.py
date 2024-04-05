@@ -7,9 +7,16 @@ from ..tools.make_map import (
     weaponId2Nmae_path,
     studentId2Name_path,
     studentId2Type_path,
+    stageId2AreaNum_path,
     studentSkill2Icon_path,
     studentId2weaponIcon_path,
 )
+
+with open(stageId2AreaNum_path, 'r', encoding='UTF-8') as f:
+    stageId2AreaNum = msgjson.decode(
+        f.read(),
+        type=Dict[str, str],
+    )
 
 with open(studentId2weaponIcon_path, 'r', encoding='UTF-8') as f:
     studentId2weaponIcon = msgjson.decode(

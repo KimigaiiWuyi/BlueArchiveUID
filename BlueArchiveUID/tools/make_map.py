@@ -4,18 +4,31 @@ from typing import Any, Dict, List
 
 from msgspec import json as msgjson
 
-schale_db = Path(__file__).parent / "SchaleDB"
-MAP = Path(__file__).parents[1] / 'utils' / "map"
+schale_db = Path(__file__).parent / 'SchaleDB'
+MAP = Path(__file__).parents[1] / 'utils' / 'map'
 
-student_data_path = schale_db / "students.json"
-equip_data_path = schale_db / "equipment.json"
+student_data_path = schale_db / 'students.json'
+equip_data_path = schale_db / 'equipment.json'
+stages_data_path = schale_db / 'stages.json'
 
-studentId2Name_path = MAP / "studentId2Name_map.json"
-studentId2Type_path = MAP / "studentId2Type_map.json"
-studentId2weaponIcon_path = MAP / "studentId2weaponIcon_map.json"
-equipId2Icon_path = MAP / "equipId2Icon_map.json"
-studentSkill2Icon_path = MAP / "studentSkill2Icon_map.json"
-weaponId2Nmae_path = MAP / "weaponId2Nmae_map.json"
+studentId2Name_path = MAP / 'studentId2Name_map.json'
+studentId2Type_path = MAP / 'studentId2Type_map.json'
+studentId2weaponIcon_path = MAP / 'studentId2weaponIcon_map.json'
+equipId2Icon_path = MAP / 'equipId2Icon_map.json'
+studentSkill2Icon_path = MAP / 'studentSkill2Icon_map.json'
+weaponId2Nmae_path = MAP / 'weaponId2Nmae_map.json'
+stageId2AreaNum_path = MAP / 'stageId2AreaNum_map.json'
+
+
+def make_stageId2AreaNum():
+    result = {}
+    for stage in stages_data['Campaign']:
+        a = f"{stage['Area']}-{stage['Stage']}"
+        if stage['Difficulty'] > 0:
+            a += 'H'
+        result[stage['Id']] = a
+    with open(stageId2AreaNum_path, 'w', encoding='UTF-8') as f:
+        json.dump(result, f, indent=4, ensure_ascii=False)
 
 
 def make_id2name():
@@ -78,6 +91,7 @@ def make_map():
     make_equipId2Icon()
     make_studentSkill2Icon()
     make_weaponId2Nmae()
+    make_stageId2AreaNum()
 
 
 if __name__ == '__main__':
@@ -91,6 +105,12 @@ if __name__ == '__main__':
         equip_data = msgjson.decode(
             f.read(),
             type=List[Dict[str, Any]],
+        )
+
+    with open(stages_data_path, 'r', encoding='UTF-8') as f:
+        stages_data = msgjson.decode(
+            f.read(),
+            type=Dict[str, List[Dict[str, Any]]],
         )
 
     make_map()
