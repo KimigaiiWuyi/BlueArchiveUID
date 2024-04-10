@@ -3,8 +3,8 @@ from typing import Any, Dict, List, Union, Literal, Optional, cast
 from gsuid_core.logger import logger
 from aiohttp import FormData, TCPConnector, ClientSession, ContentTypeError
 
-from .models import FriendData
 from ..ba_config import ba_config
+from .models import RankResp, FriendData
 from .api import (
     ARONA_URL,
     BATTLE_URL,
@@ -13,6 +13,7 @@ from .api import (
     XTZX_RAID_RANK,
     XTZX_RAID_CHART,
     XTZX_FRIEND_DATA,
+    XTZX_FRIEND_RANK,
     XTZX_RAID_CHART_PERSON,
 )
 
@@ -41,7 +42,7 @@ class BaseBAApi:
     async def _ba_request(
         self,
         url: str,
-        method: Literal["GET", "POST"] = "GET",
+        method: Literal['GET', 'POST'] = 'GET',
         header: Dict[str, str] = _HEADER,
         params: Optional[Dict[str, Any]] = None,
         json: Optional[Dict[str, Any]] = None,
@@ -63,7 +64,7 @@ class BaseBAApi:
                     raw_data = await resp.json()
                 except ContentTypeError:
                     _raw_data = await resp.text()
-                    raw_data = {"retcode": -999, "data": _raw_data}
+                    raw_data = {'retcode': -999, 'data': _raw_data}
                 logger.debug(raw_data)
                 return raw_data
 
@@ -97,8 +98,8 @@ class XTZXApi(BaseBAApi):
             XTZX_RAID_CHART_PERSON,
             'POST',
             json={
-                "server": int(server_id),
-                "season": int(season),
+                'server': int(server_id),
+                'season': int(season),
             },
         )
         if (
@@ -186,8 +187,8 @@ class XTZXApi(BaseBAApi):
             XTZX_FRIEND_DATA,
             'POST',
             json={
-                "server": int(server_id),
-                "friend": friend_code,
+                'server': int(server_id),
+                'friend': friend_code,
             },
         )
         if isinstance(data, Dict) and 'code' in data:
@@ -198,10 +199,31 @@ class XTZXApi(BaseBAApi):
         else:
             return -500
 
+    async def get_xtzx_friend_ranking(
+        self,
+        page: int,
+        student_id: Union[str, int] = 10000,
+    ) -> Union[int, RankResp]:
+        data = await self._ba_request(
+            XTZX_FRIEND_RANK,
+            'POST',
+            json={
+                'page': page,
+                'studentId': student_id,
+            },
+        )
+        if isinstance(data, Dict) and 'code' in data:
+            if data['code'] == 200:
+                return cast(RankResp, data['data'])
+            else:
+                return data['code']
+        else:
+            return -500
+
     async def _ba_request(
         self,
         url: str,
-        method: Literal["GET", "POST"] = "GET",
+        method: Literal['GET', 'POST'] = 'GET',
         header: Dict[str, str] = _HEADER,
         params: Optional[Dict[str, Any]] = None,
         json: Optional[Dict[str, Any]] = None,
@@ -226,6 +248,6 @@ class XTZXApi(BaseBAApi):
                     raw_data = await resp.json()
                 except ContentTypeError:
                     _raw_data = await resp.text()
-                    raw_data = {"retcode": -999, "data": _raw_data}
+                    raw_data = {'retcode': -999, 'data': _raw_data}
                 logger.debug(raw_data)
                 return raw_data

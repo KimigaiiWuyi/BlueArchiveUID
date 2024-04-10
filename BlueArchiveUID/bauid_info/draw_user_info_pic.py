@@ -13,6 +13,7 @@ from gsuid_core.utils.image.image_tools import (
 
 from ..utils.ba_api import xtzx_api
 from ..utils.error_reply import get_error
+from ..utils.api.models import AssistInfo, RankAssistInfo
 from ..utils.resource_path import (
     SKILL_ICON_PATH,
     WEAPON_ICON_PATH,
@@ -44,6 +45,118 @@ COLOR_MAP: Dict[str, Tuple[int, int, int]] = {
 }
 
 
+async def draw_assist_card(assist: Union[AssistInfo, RankAssistInfo]):
+    assist_card = Image.open(TEXT_PATH / 'assist_bg.png')
+    if assist:
+        assist_draw = ImageDraw.Draw(assist_card)
+
+        student_id = assist['uniqueId']
+        student_star = assist['starGrade']
+        student_level = assist['level']
+        student_star_pic = Image.open(TEXT_PATH / f'star{student_star}.png')
+        student_star_pic = student_star_pic.convert('RGBA')
+        student_name = studentId2Name[str(student_id)]
+        student_type = studentId2Type[str(student_id)]
+
+        student_pic = Image.open(
+            STUDENT_COLLECTION_PATH / f'{student_id}.webp'
+        )
+        student_color = COLOR_MAP[student_type]
+        student_color_pic = Image.new('RGBA', student_pic.size, student_color)
+
+        favor_rank = assist['favorRank']
+        ex = assist['exSkillLevel']
+        nm = assist['publicSkillLevel']
+        ps = assist['passiveSkillLevel']
+        sub = assist['extraPassiveSkillLevel']
+
+        skill_data = {
+            'ex': ex,
+            'nm': nm,
+            'ps': ps,
+            'sub': sub,
+        }
+        for sindex, s in enumerate(skill_data):
+            skill_bg = Image.open(TEXT_PATH / f'{student_type}_skill_bg.png')
+            skill_draw = ImageDraw.Draw(skill_bg)
+
+            skill_icon = studentSkill2Icon[str(student_id)][s]
+            skill_path = SKILL_ICON_PATH / f'{skill_icon}.webp'
+            skill_pic = Image.open(skill_path).resize((36, 38))
+
+            skill = skill_data[s] if skill_data[s] != 10 else 'M'
+            skill_color = GREY if skill != 'M' else student_color
+
+            skill_bg.paste(skill_pic, (25, 21), skill_pic)
+            skill_draw.text(
+                (70, 40), f'等级{skill}', skill_color, cf(30), 'lm'
+            )
+            assist_card.paste(skill_bg, (312 + 172 * sindex, 96), skill_bg)
+
+        assist_card.paste(student_color_pic, (66, 108), student_pic)
+        assist_card.paste(student_pic, (68, 96), student_pic)
+        assist_card.paste(student_star_pic, (228, 390), student_star_pic)
+        assist_draw.text((146, 364), student_name, GREY, cf(32), 'mm')
+        assist_draw.text((251, 361), str(favor_rank), 'white', cf(25), 'mm')
+        assist_draw.text(
+            (151, 414), f'等级{student_level}', BLACK, cf(25), 'mm'
+        )
+
+        weapon_bg = Image.open(TEXT_PATH / 'weapon_bar.png')
+        if assist['weapon']:
+            weapon_draw = ImageDraw.Draw(weapon_bg)
+
+            weapon_star = assist['weaponStartGrade']
+            weapon_name = weaponId2Nmae[str(student_id)]
+            weapon_level = assist['weaponLevel']
+            weapon_icon_id = studentId2weaponIcon[str(student_id)]
+            weapon_path = WEAPON_ICON_PATH / f'{weapon_icon_id}.webp'
+            weapon_icon = Image.open(weapon_path).resize((400, 102))
+
+            weapon_bg.paste(weapon_icon, (11, 42), weapon_icon)
+            weapon_draw.text(
+                (470, 70), f'等级{weapon_level}', BLACK, cf(25), 'mm'
+            )
+            weapon_draw.text((486, 115), weapon_name, BLACK, cf(38), 'lm')
+
+            for i in range(5):
+                if i < weapon_star:
+                    star_pic = weapon_star_full
+                else:
+                    star_pic = weapon_star_empty
+                weapon_bg.paste(star_pic, (227 + 29 * i, 110), star_pic)
+
+        assist_card.paste(weapon_bg, (275, 147), weapon_bg)
+
+        equip_fg = Image.open(TEXT_PATH / 'equip_fg.png')
+        for eindex, equip in enumerate(assist['equipment']):
+            equip_bg = Image.open(TEXT_PATH / 'equip_bg.png')
+            equip_id = equip['UniqueId']
+            equip_icon = equipId2Icon[str(equip_id)]
+            equip_pic = Image.open(EQUIPMENT_ICON_PATH / f'{equip_icon}.webp')
+            equip_level = equip['Level']
+            # equip_tier = equip['Tier']
+
+            equip_bg.paste(equip_pic, (2, 17), equip_pic)
+            equip_bg.paste(equip_fg, (0, 0), equip_fg)
+            equip_bg_draw = ImageDraw.Draw(equip_bg)
+            equip_bg_draw.text(
+                (75, 124),
+                f'等级{equip_level}',
+                'white',
+                cf(24),
+                'mm',
+            )
+            assist_card.paste(equip_bg, (304 + eindex * 131, 306), equip_bg)
+    return assist_card
+
+
+def get_bg(w: int, h: int):
+    img = crop_center_img(Image.open(TEXT_PATH / 'bg.jpg'), w, h)
+    img = img.convert('RGBA')
+    return img
+
+
 async def draw_user_info_img(
     _fcode: str, ev: Event, user_id: str
 ) -> Union[str, bytes]:
@@ -54,8 +167,7 @@ async def draw_user_info_img(
         return get_error(data)
 
     w, h = 1100, 2880
-    img = crop_center_img(Image.open(TEXT_PATH / 'bg.jpg'), w, h)
-    img = img.convert('RGBA')
+    img = get_bg(w, h)
 
     title = Image.open(TEXT_PATH / 'title.png')
     title_draw = ImageDraw.Draw(title)
@@ -129,120 +241,7 @@ async def draw_user_info_img(
                 _assist_list.append({})
 
     for index, assist in enumerate(_assist_list):
-        assist_card = Image.open(TEXT_PATH / 'assist_bg.png')
-        if assist:
-            assist_draw = ImageDraw.Draw(assist_card)
-
-            student_id = assist['uniqueId']
-            student_star = assist['starGrade']
-            student_level = assist['level']
-            student_star_pic = Image.open(
-                TEXT_PATH / f'star{student_star}.png'
-            )
-            student_star_pic = student_star_pic.convert('RGBA')
-            student_name = studentId2Name[str(student_id)]
-            student_type = studentId2Type[str(student_id)]
-
-            student_pic = Image.open(
-                STUDENT_COLLECTION_PATH / f'{student_id}.webp'
-            )
-            student_color = COLOR_MAP[student_type]
-            student_color_pic = Image.new(
-                'RGBA', student_pic.size, student_color
-            )
-
-            favor_rank = assist['favorRank']
-            ex = assist['exSkillLevel']
-            nm = assist['publicSkillLevel']
-            ps = assist['passiveSkillLevel']
-            sub = assist['extraPassiveSkillLevel']
-
-            skill_data = {
-                'ex': ex,
-                'nm': nm,
-                'ps': ps,
-                'sub': sub,
-            }
-            for sindex, s in enumerate(skill_data):
-                skill_bg = Image.open(
-                    TEXT_PATH / f'{student_type}_skill_bg.png'
-                )
-                skill_draw = ImageDraw.Draw(skill_bg)
-
-                skill_icon = studentSkill2Icon[str(student_id)][s]
-                skill_path = SKILL_ICON_PATH / f'{skill_icon}.webp'
-                skill_pic = Image.open(skill_path).resize((36, 38))
-
-                skill = skill_data[s] if skill_data[s] != 10 else 'M'
-                skill_color = GREY if skill != 'M' else student_color
-
-                skill_bg.paste(skill_pic, (25, 21), skill_pic)
-                skill_draw.text(
-                    (70, 40), f'等级{skill}', skill_color, cf(30), 'lm'
-                )
-                assist_card.paste(skill_bg, (312 + 172 * sindex, 96), skill_bg)
-
-            assist_card.paste(student_color_pic, (66, 108), student_pic)
-            assist_card.paste(student_pic, (68, 96), student_pic)
-            assist_card.paste(student_star_pic, (228, 390), student_star_pic)
-            assist_draw.text((146, 364), student_name, GREY, cf(32), 'mm')
-            assist_draw.text(
-                (251, 361), str(favor_rank), 'white', cf(25), 'mm'
-            )
-            assist_draw.text(
-                (151, 414), f'等级{student_level}', BLACK, cf(25), 'mm'
-            )
-
-            weapon_bg = Image.open(TEXT_PATH / 'weapon_bar.png')
-            if assist['weapon']:
-                weapon_draw = ImageDraw.Draw(weapon_bg)
-
-                weapon_star = assist['weaponStartGrade']
-                weapon_name = weaponId2Nmae[str(student_id)]
-                weapon_level = assist['weaponLevel']
-                weapon_icon_id = studentId2weaponIcon[str(student_id)]
-                weapon_path = WEAPON_ICON_PATH / f'{weapon_icon_id}.webp'
-                weapon_icon = Image.open(weapon_path).resize((400, 102))
-
-                weapon_bg.paste(weapon_icon, (11, 42), weapon_icon)
-                weapon_draw.text(
-                    (470, 70), f'等级{weapon_level}', BLACK, cf(25), 'mm'
-                )
-                weapon_draw.text((486, 115), weapon_name, BLACK, cf(38), 'lm')
-
-                for i in range(5):
-                    if i < weapon_star:
-                        star_pic = weapon_star_full
-                    else:
-                        star_pic = weapon_star_empty
-                    weapon_bg.paste(star_pic, (227 + 29 * i, 110), star_pic)
-
-            assist_card.paste(weapon_bg, (275, 147), weapon_bg)
-
-            equip_fg = Image.open(TEXT_PATH / 'equip_fg.png')
-            for eindex, equip in enumerate(assist['equipment']):
-                equip_bg = Image.open(TEXT_PATH / 'equip_bg.png')
-                equip_id = equip['UniqueId']
-                equip_icon = equipId2Icon[str(equip_id)]
-                equip_pic = Image.open(
-                    EQUIPMENT_ICON_PATH / f'{equip_icon}.webp'
-                )
-                equip_level = equip['Level']
-                # equip_tier = equip['Tier']
-
-                equip_bg.paste(equip_pic, (2, 17), equip_pic)
-                equip_bg.paste(equip_fg, (0, 0), equip_fg)
-                equip_bg_draw = ImageDraw.Draw(equip_bg)
-                equip_bg_draw.text(
-                    (75, 124),
-                    f'等级{equip_level}',
-                    'white',
-                    cf(24),
-                    'mm',
-                )
-                assist_card.paste(
-                    equip_bg, (304 + eindex * 131, 306), equip_bg
-                )
+        assist_card = await draw_assist_card(assist)
 
         x = 80 if index >= 2 else 0
         img.paste(assist_card, (0, 884 + 450 * index + x), assist_card)

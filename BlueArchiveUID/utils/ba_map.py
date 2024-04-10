@@ -2,6 +2,7 @@ from typing import Dict
 
 from msgspec import json as msgjson
 
+from .alias.name_convert import alias_to_char_name
 from ..tools.make_map import (
     equipId2Icon_path,
     weaponId2Nmae_path,
@@ -53,3 +54,12 @@ with open(studentSkill2Icon_path, 'r', encoding='UTF-8') as f:
         f.read(),
         type=Dict[str, Dict[str, str]],
     )
+
+
+def student_name_to_id(name: str) -> str:
+    name = alias_to_char_name(name)
+    for _id in studentId2Name:
+        if name in studentId2Name[_id]:
+            return _id
+    else:
+        return '9999'
