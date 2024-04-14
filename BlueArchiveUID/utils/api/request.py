@@ -9,6 +9,7 @@ from .api import (
     ARONA_URL,
     BATTLE_URL,
     XTZX_RAID_TOP,
+    XTZX_FIND_RANK,
     XTZX_RAID_LIST,
     XTZX_RAID_RANK,
     XTZX_RAID_CHART,
@@ -188,6 +189,25 @@ class XTZXApi(BaseBAApi):
             'POST',
             json={
                 'server': int(server_id),
+                'friend': friend_code,
+            },
+        )
+        if isinstance(data, Dict) and 'code' in data:
+            if data['code'] == 200:
+                return cast(FriendData, data['data'])
+            else:
+                return data['code']
+        else:
+            return -500
+
+    async def get_xtzx_find_rank(
+        self,
+        friend_code: str,
+    ) -> Union[int, FriendData]:
+        data = await self._ba_request(
+            XTZX_FIND_RANK,
+            'POST',
+            json={
                 'friend': friend_code,
             },
         )

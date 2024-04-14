@@ -148,6 +148,7 @@ async def draw_assist_card(assist: Union[AssistInfo, RankAssistInfo]):
                 'mm',
             )
             assist_card.paste(equip_bg, (304 + eindex * 131, 306), equip_bg)
+
     return assist_card
 
 

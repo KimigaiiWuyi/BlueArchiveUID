@@ -7,6 +7,13 @@ from .draw_rank_pic import draw_rank_pic
 sv_ba_xtzx_rank = SV('BA什亭之匣学生排行榜')
 
 
-@sv_ba_xtzx_rank.on_command(('ba学生排行'))
+@sv_ba_xtzx_rank.on_command(
+    (
+        'ba学生排行',
+        'ba学生排名',
+        'ba角色排名',
+        'ba角色排行',
+    )
+)
 async def send_rank_msg(bot: Bot, ev: Event):
     await bot.send(await draw_rank_pic(ev.text.strip()))

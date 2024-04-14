@@ -29,6 +29,7 @@ async def draw_rank_pic(student: str) -> Union[bytes, str]:
     student_id = student_name_to_id(student)
     if student_id == '9999':
         return '要查询的角色不存在或别名未收录, 请尝试使用完整名字。'
+
     data = await xtzx_api.get_xtzx_friend_ranking(1, student_id)
     if isinstance(data, int):
         return get_error(data)
@@ -37,7 +38,6 @@ async def draw_rank_pic(student: str) -> Union[bytes, str]:
     img = get_bg(1100, 2800)
     for index, teacher in enumerate(teacher_data):
         info = teacher['assistInfoList'][0]
-        assist_card = await draw_assist_card(info)
         rank_key = info['baRank']['key']
         rank_value = info['baRank']['value']
         rank_str = f'{rank_key} / {rank_value}'
@@ -50,6 +50,7 @@ async def draw_rank_pic(student: str) -> Union[bytes, str]:
         global_rank_color = get_color(global_rank_key)
 
         card = Image.open(TEXT_PATH / 'card.png')
+
         card_draw = ImageDraw.Draw(card)
 
         card_draw.text(
@@ -92,9 +93,10 @@ async def draw_rank_pic(student: str) -> Union[bytes, str]:
             cf(24),
             'mm',
         )
-        card.paste(assist_card, (0, 40), assist_card)
+        assist_card = await draw_assist_card(info)
 
         img.paste(card, (0, 28 + index * 550), card)
+        img.paste(assist_card, (0, 68 + index * 550), assist_card)
 
     img = await convert_img(img)
     return img
