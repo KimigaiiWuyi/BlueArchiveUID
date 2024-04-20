@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import Union
 
 from PIL import Image, ImageDraw
+from gsuid_core.utils.cache import gs_cache
 from gsuid_core.utils.image.convert import convert_img
 from gsuid_core.utils.fonts.fonts import core_font as cf
 
@@ -27,6 +28,11 @@ def get_color(rank_key: int):
 
 async def draw_rank_pic(student: str) -> Union[bytes, str]:
     student_id = student_name_to_id(student)
+    return await _draw_rank_pic(student_id)
+
+
+@gs_cache()
+async def _draw_rank_pic(student_id: str) -> Union[bytes, str]:
     if student_id == '9999':
         return '要查询的角色不存在或别名未收录, 请尝试使用完整名字。'
 

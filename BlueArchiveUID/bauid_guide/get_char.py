@@ -13,6 +13,10 @@ from ..utils.resource_path import CHAR_PATH, HEHEDI_CHAR_GUIDE_PATH
 
 async def get_hehedi_char_img(name: str) -> Optional[str]:
     name = alias_to_char_name(name)
+    return await _get_hehedi_char_img(name)
+
+
+async def _get_hehedi_char_img(name: str) -> Optional[str]:
     path = HEHEDI_CHAR_GUIDE_PATH / f'{name}.jpg'
     if path.exists():
         return await convert_img(path)

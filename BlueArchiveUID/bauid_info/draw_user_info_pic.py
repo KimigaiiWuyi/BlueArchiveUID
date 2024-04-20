@@ -3,6 +3,7 @@ from typing import Dict, Tuple, Union
 
 from PIL import Image, ImageDraw
 from gsuid_core.models import Event
+from gsuid_core.utils.cache import gs_cache
 from gsuid_core.utils.image.convert import convert_img
 from gsuid_core.utils.fonts.fonts import core_font as cf
 from gsuid_core.utils.image.image_tools import (
@@ -158,6 +159,7 @@ def get_bg(w: int, h: int):
     return img
 
 
+@gs_cache()
 async def draw_user_info_img(
     _fcode: str, ev: Event, user_id: str
 ) -> Union[str, bytes]:
