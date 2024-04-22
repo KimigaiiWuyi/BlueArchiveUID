@@ -17,7 +17,7 @@ async def send_raid_msg(bot: Bot, ev: Event):
     await bot.send(await get_ranking(season))
 
 
-@sv_ba_xtzx_raid.on_command(('ba总力战', 'BA总力战'))
+@sv_ba_xtzx_raid.on_command(('ba总力战', 'BA总力战', 'ba档线', 'ba挡线'))
 async def send_xtzx_msg(bot: Bot, ev: Event):
     if 'B' in ev.text or 'b' in ev.text:
         server_id = 2

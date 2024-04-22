@@ -39,8 +39,6 @@ async def get_ranking_from_xtzx(
             for i in person_rank_data[:2]:
                 im_list.append(f'{i["hard"]}人数: {i["rank"]}')
 
-            im_list.append('\n')
-
     if top_data is not None:
         for ix, i in enumerate(['🥇', '🥈', '🥉']):
             if len(top_data) > ix:
