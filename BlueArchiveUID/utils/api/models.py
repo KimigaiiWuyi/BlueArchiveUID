@@ -104,3 +104,16 @@ class RankResp(TypedDict):
     totalData: int
     records: List[Record]
     lastPage: bool
+
+
+class LabelInfo(TypedDict):
+    dataType: int
+    tryNumber: int
+
+
+class DataItem(TypedDict):
+    rank: int
+    bestRankingPoint: int
+    hard: str
+    battleTime: str
+    labelInfo: List[LabelInfo]

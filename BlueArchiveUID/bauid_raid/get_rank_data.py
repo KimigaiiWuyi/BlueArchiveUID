@@ -27,6 +27,20 @@ async def get_ranking_from_xtzx(
     im_list.append(f'【{SERVER_MAP[server_id]}数据】:')
     data = await xtzx_api.get_xtzx_raid_chart(season, server_id)
     top_data = await xtzx_api.get_xtzx_raid_top(season, server_id)
+    person_data = await xtzx_api.get_xtzx_raid_chart_person(season, server_id)
+    person_rank_data = await xtzx_api.get_xtzx_raid_person(season, server_id)
+
+    if person_data is not None:
+        person_num = person_data['value'][-1]
+        im_list.append(f'参与总人数: {person_num:,}')
+
+    if person_rank_data is not None:
+        if len(person_rank_data) >= 1:
+            for i in person_rank_data[:2]:
+                im_list.append(f'{i["hard"]}人数: {i["rank"]}')
+
+            im_list.append('\n')
+
     if top_data is not None:
         for ix, i in enumerate(['🥇', '🥈', '🥉']):
             if len(top_data) > ix:

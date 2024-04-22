@@ -4,7 +4,7 @@ from gsuid_core.logger import logger
 from aiohttp import FormData, TCPConnector, ClientSession, ContentTypeError
 
 from ..ba_config import ba_config
-from .models import RankResp, FriendData
+from .models import DataItem, RankResp, FriendData
 from .api import (
     ARONA_URL,
     BATTLE_URL,
@@ -15,6 +15,7 @@ from .api import (
     XTZX_RAID_CHART,
     XTZX_FRIEND_DATA,
     XTZX_FRIEND_RANK,
+    XTZX_RAID_RANK_PERSON,
     XTZX_RAID_CHART_PERSON,
 )
 
@@ -179,6 +180,31 @@ class XTZXApi(BaseBAApi):
         if isinstance(data, Dict) and 'code' in data and data['code'] == 200:
             return data
 
+    async def get_xtzx_raid_person(
+        self,
+        season: Union[str, int, None] = None,
+        server_id: Union[str, int] = 1,
+        data_type: int = 0,
+        try_number: int = 0,
+    ):
+        if season is None:
+            now_season = await self.get_now_season_data()
+            if now_season is None:
+                return None
+            season = int(now_season['season'])
+        data = await self._ba_request(
+            XTZX_RAID_RANK_PERSON,
+            'POST',
+            json={
+                'server': int(server_id),
+                'season': int(season),
+                "dataType": data_type,
+                "tryNumber": try_number,
+            },
+        )
+        if isinstance(data, Dict) and 'code' in data and data['code'] == 200:
+            return cast(List[DataItem], data['data'])
+
     async def get_xtzx_friend_data(
         self,
         friend_code: str,
@@ -268,6 +294,12 @@ class XTZXApi(BaseBAApi):
                     raw_data = await resp.json()
                 except ContentTypeError:
                     _raw_data = await resp.text()
-                    raw_data = {'retcode': -999, 'data': _raw_data}
+                    raw_data = {'code': -999, 'data': _raw_data}
                 logger.debug(raw_data)
+                if 'code' in raw_data:
+                    if raw_data['code'] != 0 and raw_data['code'] != 200:
+                        logger.error(
+                            f'[BaUID] 访问 {url} 失败, 错误码: {raw_data["retcode"]}'
+                            f', 错误返回: {raw_data}'
+                        )
                 return raw_data
