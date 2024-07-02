@@ -13,12 +13,12 @@ repos:
       - id: isort
 
   - repo: https://github.com/psf/black
-    rev: 24.1.1
+    rev: 24.4.2
     hooks:
       - id: black
 
   - repo: https://github.com/pycqa/flake8
-    rev: 7.0.0
+    rev: 7.1.0
     hooks:
       - id: flake8
 
@@ -28,7 +28,7 @@ repos:
       - id: pycln
 
   - repo: https://github.com/python-poetry/poetry
-    rev: 1.7.0
+    rev: 1.8.0
     hooks:
       - id: poetry-check
       - id: poetry-lock
