@@ -76,7 +76,11 @@ class XTZXApi(BaseBAApi):
     _HEADER = {'Authorization': f'ba-token {TOKEN}'}
 
     async def get_xtzx_raid_list(self) -> Optional[List[Dict]]:
-        data = await self._ba_request(XTZX_RAID_LIST)
+        data = await self._ba_request(
+            XTZX_RAID_LIST,
+            'POST',
+            json={'server': 1},
+        )
         if isinstance(data, Dict):
             return data['data']
 
@@ -122,8 +126,15 @@ class XTZXApi(BaseBAApi):
             if now_season is None:
                 return None
             season = now_season['season']
+            if season is None:
+                return None
         data = await self._ba_request(
-            XTZX_RAID_CHART.format(server_id, season)
+            XTZX_RAID_CHART,
+            'POST',
+            json={
+                'server': int(server_id),
+                'season': int(season),
+            },
         )
         if (
             isinstance(data, Dict)
