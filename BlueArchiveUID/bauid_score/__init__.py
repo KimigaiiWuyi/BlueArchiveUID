@@ -10,7 +10,7 @@ sv_ba_score = SV('BA总力战算分')
 sv_ba_time = SV('BA总力战算用时')
 
 
-@sv_ba_score.on_command(('ba算分', 'BA算分'))
+@sv_ba_score.on_command(('算分'))
 async def send_score_msg(bot: Bot, ev: Event):
     if not ev.text:
         await bot.send(
@@ -30,7 +30,7 @@ async def send_score_msg(bot: Bot, ev: Event):
             await bot.send('请检查指令词 用时/算分 或格式 用/剩，重新发送指令')
 
 
-@sv_ba_time.on_command(('ba用时', 'BA用时'))
+@sv_ba_time.on_command(('用时'))
 async def send_time_msg(bot: Bot, ev: Event):
     if not ev.text:
         await bot.send(

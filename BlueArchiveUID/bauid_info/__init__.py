@@ -9,7 +9,7 @@ from .draw_user_info_pic import draw_user_info_img
 ba_user_info = SV('ba用户信息')
 
 
-@ba_user_info.on_command(('ba查询'), block=True)
+@ba_user_info.on_command(('查询'), block=True)
 async def send_ba_user_info(bot: Bot, ev: Event):
     fcode, user_id = await get_uid(
         bot, ev, BaBind, partten=r'[A-Za-z0-9:：]+', get_user_id=True

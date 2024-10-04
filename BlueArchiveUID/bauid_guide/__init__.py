@@ -15,7 +15,7 @@ sv_ba_guide = SV('BA攻略')
 char_source: List[str] = ba_config.get_config('char_guide_source').data
 
 
-@sv_ba_wiki.on_prefix(('ba角色攻略', 'BA角色攻略'))
+@sv_ba_wiki.on_prefix(('角色攻略'))
 async def send_ba_char_pic(bot: Bot, ev: Event):
     msg_list = []
     for s in char_source:
@@ -34,7 +34,7 @@ async def send_ba_char_pic(bot: Bot, ev: Event):
             await bot.send('未找到相关的攻略信息！')
 
 
-@sv_ba_guide.on_prefix(('ba攻略', 'BA攻略'))
+@sv_ba_guide.on_prefix(('攻略'))
 async def send_ba_stage_pic(bot: Bot, ev: Event):
     im = await get_guide_img(ev.text)
     if isinstance(im, str):
@@ -44,6 +44,6 @@ async def send_ba_stage_pic(bot: Bot, ev: Event):
             await bot.send(img)
 
 
-@sv_ba_guide.on_fullmatch(('ba活动攻略', 'BA活动攻略'))
+@sv_ba_guide.on_fullmatch(('活动攻略'))
 async def send_event_guide_pic(bot: Bot, ev: Event):
     await bot.send(await get_event_img())

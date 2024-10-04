@@ -10,16 +10,16 @@ ba_user_bind = SV('ba用户绑定')
 
 @ba_user_bind.on_command(
     (
-        'ba绑定uid',
-        'ba绑定UID',
-        'ba绑定',
-        'ba好友码',
-        'ba切换uid',
-        'ba切换UID',
-        'ba切换',
-        'ba删除uid',
-        'ba删除UID',
-        'ba删除',
+        '绑定uid',
+        '绑定UID',
+        '绑定',
+        '好友码',
+        '切换uid',
+        '切换UID',
+        '切换',
+        '删除uid',
+        '删除UID',
+        '删除',
     ),
     block=True,
 )
