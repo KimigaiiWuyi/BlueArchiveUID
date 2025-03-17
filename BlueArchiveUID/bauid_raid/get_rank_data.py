@@ -31,8 +31,11 @@ async def get_ranking_from_xtzx(
     person_rank_data = await xtzx_api.get_xtzx_raid_person(season, server_id)
 
     if person_data is not None:
-        person_num = person_data['value'][-1]
-        im_list.append(f'参与总人数: {person_num:,}')
+        if person_data['value'] is not None:
+            person_num = person_data['value'][-1]
+            im_list.append(f'参与总人数: {person_num:,}')
+        else:
+            im_list.append('参与总人数: 未知')
 
     if person_rank_data is not None:
         if len(person_rank_data) >= 1:
