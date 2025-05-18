@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://github.com/KimigaiiWuyi/BlueArchiveUID"><img src="https://s2.loli.net/2023/09/23/bVKDjUXpJ8onLEc.png" width="256" height="256" alt="StarRailUID"></a>
 </p>
-<h1 align = "center">BlueArchiveUID 0.2</h1>
+<h1 align = "center">BlueArchiveUID 0.4</h1>
 <h4 align = "center">🚧支持OneBot(QQ)、QQ频道、微信、开黑啦、Telegram的蔚蓝档案Bot插件🚧</h4>
 <div align = "center">
         <a href="http://docs.gsuid.gbots.work/#/" target="_blank">安装文档</a>
