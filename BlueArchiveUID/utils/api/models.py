@@ -40,7 +40,7 @@ class AssistInfo(TypedDict):
     weaponUniqueId: int
     weaponType: int
     weaponLevel: int
-    weaponStartGrade: int
+    weaponStarGrade: int
 
 
 class Equipment(TypedDict):
@@ -76,7 +76,7 @@ class RankAssistInfo(TypedDict):
     weaponUniqueId: int
     weaponType: int
     weaponLevel: int
-    weaponStartGrade: int
+    weaponStarGrade: int
 
 
 class Record(TypedDict):

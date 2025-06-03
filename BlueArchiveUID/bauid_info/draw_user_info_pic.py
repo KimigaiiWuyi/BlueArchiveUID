@@ -107,7 +107,7 @@ async def draw_assist_card(assist: Union[AssistInfo, RankAssistInfo]):
         if assist['weapon']:
             weapon_draw = ImageDraw.Draw(weapon_bg)
 
-            weapon_star = assist['weaponStartGrade']
+            weapon_star = assist['weaponStarGrade']
             weapon_name = weaponId2Nmae[str(student_id)]
             weapon_level = assist['weaponLevel']
             weapon_icon_id = studentId2weaponIcon[str(student_id)]
