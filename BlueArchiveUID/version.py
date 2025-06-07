@@ -1,1 +1,1 @@
-BlueArchiveUID_version = '0.4'
+BlueArchiveUID_version = '0.4.1'
