@@ -2,19 +2,19 @@ from pathlib import Path
 
 from gsuid_core.data_store import get_res_path
 
-BG_PATH = Path(__file__).parent / 'bg'
-MAIN_PATH = get_res_path('BlueArchiveUID')
-GUIDE_PATH = MAIN_PATH / 'guide'
-EVENT_PATH = MAIN_PATH / 'event'
-CHAR_PATH = MAIN_PATH / 'char'
-HEHEDI_LEVEL_GUIDE_PATH = MAIN_PATH / 'hehedi_level_guide'
-HEHEDI_CHAR_GUIDE_PATH = MAIN_PATH / 'hehedi_char_guide'
+BG_PATH = Path(__file__).parent / "bg"
+MAIN_PATH = get_res_path("BlueArchiveUID")
+GUIDE_PATH = MAIN_PATH / "guide"
+EVENT_PATH = MAIN_PATH / "event"
+CHAR_PATH = MAIN_PATH / "char"
+HEHEDI_LEVEL_GUIDE_PATH = MAIN_PATH / "hehedi_level_guide"
+HEHEDI_CHAR_GUIDE_PATH = MAIN_PATH / "hehedi_char_guide"
 
-RESOURCE_PATH = MAIN_PATH / 'resource'
-EQUIPMENT_ICON_PATH = RESOURCE_PATH / 'equipment_icon'
-SKILL_ICON_PATH = RESOURCE_PATH / 'skill_icon'
-STUDENT_COLLECTION_PATH = RESOURCE_PATH / 'student_collection'
-WEAPON_ICON_PATH = RESOURCE_PATH / 'weapon_icon'
+RESOURCE_PATH = MAIN_PATH / "resource"
+EQUIPMENT_ICON_PATH = RESOURCE_PATH / "equipment_icon"
+SKILL_ICON_PATH = RESOURCE_PATH / "skill_icon"
+STUDENT_COLLECTION_PATH = RESOURCE_PATH / "student_collection"
+WEAPON_ICON_PATH = RESOURCE_PATH / "weapon_icon"
 
 
 def init_dir():

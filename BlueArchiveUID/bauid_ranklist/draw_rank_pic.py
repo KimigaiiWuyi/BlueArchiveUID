@@ -1,17 +1,18 @@
-from pathlib import Path
 from typing import Union
+from pathlib import Path
 
 from PIL import Image, ImageDraw
+
 from gsuid_core.utils.cache import gs_cache
-from gsuid_core.utils.image.convert import convert_img
 from gsuid_core.utils.fonts.fonts import core_font as cf
+from gsuid_core.utils.image.convert import convert_img
 
 from ..utils.ba_api import xtzx_api
-from ..utils.error_reply import get_error
 from ..utils.ba_map import student_name_to_id
+from ..utils.error_reply import get_error
 from ..bauid_info.draw_user_info_pic import BLACK, get_bg, draw_assist_card
 
-TEXT_PATH = Path(__file__).parent / 'texture2d'
+TEXT_PATH = Path(__file__).parent / "texture2d"
 
 
 def get_color(rank_key: int):
@@ -33,46 +34,46 @@ async def draw_rank_pic(student: str) -> Union[bytes, str]:
 
 @gs_cache()
 async def _draw_rank_pic(student_id: str) -> Union[bytes, str]:
-    if student_id == '9999':
-        return '要查询的角色不存在或别名未收录, 请尝试使用完整名字。'
+    if student_id == "9999":
+        return "要查询的角色不存在或别名未收录, 请尝试使用完整名字。"
 
     data = await xtzx_api.get_xtzx_friend_ranking(1, student_id)
     if isinstance(data, int):
         return get_error(data)
-    teacher_data = data['records']
+    teacher_data = data["records"]
 
     img = get_bg(1100, 2800)
     for index, teacher in enumerate(teacher_data):
-        info = teacher['assistInfoList'][0]
-        rank_key = info['baRank']['key']
-        rank_value = info['baRank']['value']
-        rank_str = f'{rank_key} / {rank_value}'
+        info = teacher["assistInfoList"][0]
+        rank_key = info["baRank"]["key"]
+        rank_value = info["baRank"]["value"]
+        rank_str = f"{rank_key} / {rank_value}"
 
-        global_rank_key = info['baGlobalRank']['key']
-        global_rank_value = info['baGlobalRank']['value']
-        global_rank_str = f'{global_rank_key} / {global_rank_value}'
+        global_rank_key = info["baGlobalRank"]["key"]
+        global_rank_value = info["baGlobalRank"]["value"]
+        global_rank_str = f"{global_rank_key} / {global_rank_value}"
 
         rank_color = get_color(rank_key)
         global_rank_color = get_color(global_rank_key)
 
-        card = Image.open(TEXT_PATH / 'card.png')
+        card = Image.open(TEXT_PATH / "card.png")
 
         card_draw = ImageDraw.Draw(card)
 
         card_draw.text(
             (230, 52),
-            f'{teacher["nickname"]}',
+            f"{teacher['nickname']}",
             BLACK,
             cf(40),
-            'lm',
+            "lm",
         )
 
-        if teacher['server'] == 1:
+        if teacher["server"] == 1:
             s_f = (136, 205, 242)
-            s_t = '官服'
+            s_t = "官服"
         else:
             s_f = (243, 143, 225)
-            s_t = 'B服'
+            s_t = "B服"
 
         card_draw.rounded_rectangle((50, 36, 124, 68), 30, s_f)
         card_draw.text(
@@ -80,7 +81,7 @@ async def _draw_rank_pic(student_id: str) -> Union[bytes, str]:
             s_t,
             BLACK,
             cf(24),
-            'mm',
+            "mm",
         )
 
         card_draw.rounded_rectangle((632, 36, 780, 68), 30, rank_color)
@@ -90,14 +91,14 @@ async def _draw_rank_pic(student_id: str) -> Union[bytes, str]:
             rank_str,
             BLACK,
             cf(24),
-            'mm',
+            "mm",
         )
         card_draw.text(
             (978, 52),
             global_rank_str,
             BLACK,
             cf(24),
-            'mm',
+            "mm",
         )
         assist_card = await draw_assist_card(info)
 

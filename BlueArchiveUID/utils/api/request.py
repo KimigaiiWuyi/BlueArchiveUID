@@ -1,10 +1,9 @@
 from typing import Any, Dict, List, Union, Literal, Optional, cast
 
-from gsuid_core.logger import logger
 from aiohttp import FormData, TCPConnector, ClientSession, ContentTypeError
 
-from ..ba_config import ba_config
-from .models import DataItem, RankResp, FriendData
+from gsuid_core.logger import logger
+
 from .api import (
     ARONA_URL,
     BATTLE_URL,
@@ -18,41 +17,37 @@ from .api import (
     XTZX_RAID_RANK_PERSON,
     XTZX_RAID_CHART_PERSON,
 )
+from .models import DataItem, RankResp, FriendData
+from ..ba_config import ba_config
 
-TOKEN = ba_config.get_config('xtzx_token').data
+TOKEN = ba_config.get_config("xtzx_token").data
 
 if not TOKEN:
-    logger.warning(
-        '[BaUID] 如未配置 什亭之匣Token , ba总力战相关功能将无法正常使用'
-    )
+    logger.warning("[BaUID] 如未配置 什亭之匣Token , ba总力战相关功能将无法正常使用")
 
 
 class BaseBAApi:
     ssl_verify = True
-    _HEADER: Dict[str, str] = {'Authorization': 'N'}
+    _HEADER: Dict[str, str] = {"Authorization": "N"}
 
     async def get_arona_guide_index(self, name: str) -> Union[Dict, int]:
         return await self._ba_request(ARONA_URL.format(name.strip()))
 
-    async def get_raid_ranking(
-        self, season: Union[str, int]
-    ) -> Optional[Dict]:
+    async def get_raid_ranking(self, season: Union[str, int]) -> Optional[Dict]:
         data = await self._ba_request(BATTLE_URL.format(season))
-        if isinstance(data, Dict) and 'errno' in data and data['errno'] == 0:
+        if isinstance(data, Dict) and "errno" in data and data["errno"] == 0:
             return data
 
     async def _ba_request(
         self,
         url: str,
-        method: Literal['GET', 'POST'] = 'GET',
+        method: Literal["GET", "POST"] = "GET",
         header: Dict[str, str] = _HEADER,
         params: Optional[Dict[str, Any]] = None,
         json: Optional[Dict[str, Any]] = None,
         data: Optional[FormData] = None,
     ) -> Union[Dict, int]:
-        async with ClientSession(
-            connector=TCPConnector(verify_ssl=self.ssl_verify)
-        ) as client:
+        async with ClientSession(connector=TCPConnector(verify_ssl=self.ssl_verify)) as client:
             async with client.request(
                 method,
                 url=url,
@@ -66,23 +61,23 @@ class BaseBAApi:
                     raw_data = await resp.json()
                 except ContentTypeError:
                     _raw_data = await resp.text()
-                    raw_data = {'retcode': -999, 'data': _raw_data}
+                    raw_data = {"retcode": -999, "data": _raw_data}
                 logger.debug(raw_data)
                 return raw_data
 
 
 class XTZXApi(BaseBAApi):
     ssl_verify = True
-    _HEADER = {'Authorization': f'ba-token {TOKEN}'}
+    _HEADER = {"Authorization": f"ba-token {TOKEN}"}
 
     async def get_xtzx_raid_list(self) -> Optional[List[Dict]]:
         data = await self._ba_request(
             XTZX_RAID_LIST,
-            'POST',
-            json={'server': 1},
+            "POST",
+            json={"server": 1},
         )
         if isinstance(data, Dict):
-            return data['data']
+            return data["data"]
 
     async def get_now_season_data(self) -> Optional[Dict]:
         data = await self.get_xtzx_raid_list()
@@ -99,22 +94,17 @@ class XTZXApi(BaseBAApi):
             now_season = await self.get_now_season_data()
             if now_season is None:
                 return None
-            season = int(now_season['season'])
+            season = int(now_season["season"])
         data = await self._ba_request(
             XTZX_RAID_CHART_PERSON,
-            'POST',
+            "POST",
             json={
-                'server': int(server_id),
-                'season': int(season),
+                "server": int(server_id),
+                "season": int(season),
             },
         )
-        if (
-            isinstance(data, Dict)
-            and 'data' in data
-            and 'code' in data
-            and data['code'] == 200
-        ):
-            return data['data']
+        if isinstance(data, Dict) and "data" in data and "code" in data and data["code"] == 200:
+            return data["data"]
 
     async def get_xtzx_raid_chart(
         self,
@@ -125,24 +115,19 @@ class XTZXApi(BaseBAApi):
             now_season = await self.get_now_season_data()
             if now_season is None:
                 return None
-            season = now_season['season']
+            season = now_season["season"]
             if season is None:
                 return None
         data = await self._ba_request(
             XTZX_RAID_CHART,
-            'POST',
+            "POST",
             json={
-                'server': int(server_id),
-                'season': int(season),
+                "server": int(server_id),
+                "season": int(season),
             },
         )
-        if (
-            isinstance(data, Dict)
-            and 'data' in data
-            and 'code' in data
-            and data['code'] == 200
-        ):
-            return data['data']
+        if isinstance(data, Dict) and "data" in data and "code" in data and data["code"] == 200:
+            return data["data"]
 
     async def get_xtzx_raid_top(
         self,
@@ -153,19 +138,14 @@ class XTZXApi(BaseBAApi):
             now_season = await self.get_now_season_data()
             if now_season is None:
                 return None
-            season = int(now_season['season'])
+            season = int(now_season["season"])
         data = await self._ba_request(
             XTZX_RAID_TOP,
-            'POST',
-            json={'server': int(server_id), 'season': int(season)},
+            "POST",
+            json={"server": int(server_id), "season": int(season)},
         )
-        if (
-            isinstance(data, Dict)
-            and 'data' in data
-            and 'code' in data
-            and data['code'] == 200
-        ):
-            return data['data']
+        if isinstance(data, Dict) and "data" in data and "code" in data and data["code"] == 200:
+            return data["data"]
 
     async def get_xtzx_raid_ranking(
         self,
@@ -176,19 +156,19 @@ class XTZXApi(BaseBAApi):
             now_season = await self.get_now_season_data()
             if now_season is None:
                 return None
-            season = int(now_season['season'])
+            season = int(now_season["season"])
         data = await self._ba_request(
             XTZX_RAID_RANK,
-            'POST',
+            "POST",
             json={
-                'server': int(server_id),
-                'season': int(season),
-                'type': 2,
-                'page': 1,
-                'size': 26,
+                "server": int(server_id),
+                "season": int(season),
+                "type": 2,
+                "page": 1,
+                "size": 26,
             },
         )
-        if isinstance(data, Dict) and 'code' in data and data['code'] == 200:
+        if isinstance(data, Dict) and "code" in data and data["code"] == 200:
             return data
 
     async def get_xtzx_raid_person(
@@ -202,19 +182,19 @@ class XTZXApi(BaseBAApi):
             now_season = await self.get_now_season_data()
             if now_season is None:
                 return None
-            season = int(now_season['season'])
+            season = int(now_season["season"])
         data = await self._ba_request(
             XTZX_RAID_RANK_PERSON,
-            'POST',
+            "POST",
             json={
-                'server': int(server_id),
-                'season': int(season),
+                "server": int(server_id),
+                "season": int(season),
                 "dataType": data_type,
                 "tryNumber": try_number,
             },
         )
-        if isinstance(data, Dict) and 'code' in data and data['code'] == 200:
-            return cast(List[DataItem], data['data'])
+        if isinstance(data, Dict) and "code" in data and data["code"] == 200:
+            return cast(List[DataItem], data["data"])
 
     async def get_xtzx_friend_data(
         self,
@@ -223,17 +203,17 @@ class XTZXApi(BaseBAApi):
     ) -> Union[int, FriendData]:
         data = await self._ba_request(
             XTZX_FRIEND_DATA,
-            'POST',
+            "POST",
             json={
-                'server': int(server_id),
-                'friend': friend_code,
+                "server": int(server_id),
+                "friend": friend_code,
             },
         )
-        if isinstance(data, Dict) and 'code' in data:
-            if data['code'] == 200:
-                return cast(FriendData, data['data'])
+        if isinstance(data, Dict) and "code" in data:
+            if data["code"] == 200:
+                return cast(FriendData, data["data"])
             else:
-                return data['code']
+                return data["code"]
         else:
             return -500
 
@@ -243,16 +223,16 @@ class XTZXApi(BaseBAApi):
     ) -> Union[int, FriendData]:
         data = await self._ba_request(
             XTZX_FIND_RANK,
-            'POST',
+            "POST",
             json={
-                'friend': friend_code,
+                "friend": friend_code,
             },
         )
-        if isinstance(data, Dict) and 'code' in data:
-            if data['code'] == 200:
-                return cast(FriendData, data['data'])
+        if isinstance(data, Dict) and "code" in data:
+            if data["code"] == 200:
+                return cast(FriendData, data["data"])
             else:
-                return data['code']
+                return data["code"]
         else:
             return -500
 
@@ -263,35 +243,33 @@ class XTZXApi(BaseBAApi):
     ) -> Union[int, RankResp]:
         data = await self._ba_request(
             XTZX_FRIEND_RANK,
-            'POST',
+            "POST",
             json={
-                'page': page,
-                'studentId': student_id,
+                "page": page,
+                "studentId": student_id,
             },
         )
-        if isinstance(data, Dict) and 'code' in data:
-            if data['code'] == 200:
-                return cast(RankResp, data['data'])
+        if isinstance(data, Dict) and "code" in data:
+            if data["code"] == 200:
+                return cast(RankResp, data["data"])
             else:
-                return data['code']
+                return data["code"]
         else:
             return -500
 
     async def _ba_request(
         self,
         url: str,
-        method: Literal['GET', 'POST'] = 'GET',
+        method: Literal["GET", "POST"] = "GET",
         header: Dict[str, str] = _HEADER,
         params: Optional[Dict[str, Any]] = None,
         json: Optional[Dict[str, Any]] = None,
         data: Optional[FormData] = None,
     ) -> Union[Dict, int]:
         if not TOKEN:
-            logger.error('[BaUID] 未配置 什亭之匣Token , 无法使用ba总力战!')
+            logger.error("[BaUID] 未配置 什亭之匣Token , 无法使用ba总力战!")
             return -9999
-        async with ClientSession(
-            connector=TCPConnector(verify_ssl=self.ssl_verify)
-        ) as client:
+        async with ClientSession(connector=TCPConnector(verify_ssl=self.ssl_verify)) as client:
             async with client.request(
                 method,
                 url=url,
@@ -305,12 +283,9 @@ class XTZXApi(BaseBAApi):
                     raw_data = await resp.json()
                 except ContentTypeError:
                     _raw_data = await resp.text()
-                    raw_data = {'code': -999, 'data': _raw_data}
+                    raw_data = {"code": -999, "data": _raw_data}
                 logger.debug(raw_data)
-                if 'code' in raw_data:
-                    if raw_data['code'] != 0 and raw_data['code'] != 200:
-                        logger.error(
-                            f'[BaUID] 访问 {url} 失败, 错误码: {raw_data["retcode"]}'
-                            f', 错误返回: {raw_data}'
-                        )
+                if "code" in raw_data:
+                    if raw_data["code"] != 0 and raw_data["code"] != 200:
+                        logger.error(f"[BaUID] 访问 {url} 失败, 错误码: {raw_data['retcode']}, 错误返回: {raw_data}")
                 return raw_data

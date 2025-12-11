@@ -1,4 +1,5 @@
-# 根据输入“赛季n 最高n”（可省略汉字，两个名次间保留空格）计算竞技场挖矿剩余青辉石的插件，输入示例：“赛季12 最高3”或“12 3”
+# 根据输入“赛季n 最高n”（可省略汉字，两个名次间保留空格）
+# 计算竞技场挖矿剩余青辉石的插件，输入示例：“赛季12 最高3”或“12 3”
 # 可省略最高名次，默认历史第一挖完\n 输入示例：“赛季12”或“12”
 import re
 from typing import List
@@ -20,35 +21,35 @@ def tsf_rank(msg: str):
     smsg = msg.split()
     # 判断列表长度，=2未省略最高名次
     if len(smsg) == 2:
-        match1 = re.search(r'\d+', smsg[0])
-        match2 = re.search(r'\d+', smsg[1])
+        match1 = re.search(r"\d+", smsg[0])
+        match2 = re.search(r"\d+", smsg[1])
         if match1 is not None and match2 is not None:
             season_rank = match1.group(0)
             season_rank = int(season_rank)
             highest_rank = match2.group(0)
             highest_rank = int(highest_rank)
             if season_rank > 15001 or highest_rank > 15001:
-                return '排名最低为15001请重新输入'
+                return "排名最低为15001请重新输入"
             else:
                 rankls = [rank_format(season_rank), rank_format(highest_rank)]
                 return rankls
         else:
-            return '未匹配到名次'
+            return "未匹配到名次"
     # 判断列表长度，=1省略最高名次
     elif len(smsg) == 1:
-        match3 = re.search(r'\d+', smsg[0])
+        match3 = re.search(r"\d+", smsg[0])
         if match3 is not None:
             season_rank = match3.group(0)
             season_rank = int(str(season_rank))
             if season_rank > 15001:
-                return '排名最低为15001请重新输入'
+                return "排名最低为15001请重新输入"
             else:
                 rankls = [rank_format(season_rank)]
                 return rankls
         else:
-            return '未匹配到名次'
+            return "未匹配到名次"
     else:
-        return '请检查指令格式'
+        return "请检查指令格式"
 
 
 # 赛季名次挖矿计算函数

@@ -2,7 +2,6 @@ from typing import Dict
 
 from msgspec import json as msgjson
 
-from .alias.name_convert import alias_to_char_name
 from ..tools.make_map import (
     equipId2Icon_path,
     weaponId2Nmae_path,
@@ -12,44 +11,45 @@ from ..tools.make_map import (
     studentSkill2Icon_path,
     studentId2weaponIcon_path,
 )
+from .alias.name_convert import alias_to_char_name
 
-with open(stageId2AreaNum_path, 'r', encoding='UTF-8') as f:
+with open(stageId2AreaNum_path, "r", encoding="UTF-8") as f:
     stageId2AreaNum = msgjson.decode(
         f.read(),
         type=Dict[str, str],
     )
 
-with open(studentId2weaponIcon_path, 'r', encoding='UTF-8') as f:
+with open(studentId2weaponIcon_path, "r", encoding="UTF-8") as f:
     studentId2weaponIcon = msgjson.decode(
         f.read(),
         type=Dict[str, str],
     )
 
-with open(studentId2Type_path, 'r', encoding='UTF-8') as f:
+with open(studentId2Type_path, "r", encoding="UTF-8") as f:
     studentId2Type = msgjson.decode(
         f.read(),
         type=Dict[str, str],
     )
 
-with open(weaponId2Nmae_path, 'r', encoding='UTF-8') as f:
+with open(weaponId2Nmae_path, "r", encoding="UTF-8") as f:
     weaponId2Nmae = msgjson.decode(
         f.read(),
         type=Dict[str, str],
     )
 
-with open(equipId2Icon_path, 'r', encoding='UTF-8') as f:
+with open(equipId2Icon_path, "r", encoding="UTF-8") as f:
     equipId2Icon = msgjson.decode(
         f.read(),
         type=Dict[str, str],
     )
 
-with open(studentId2Name_path, 'r', encoding='UTF-8') as f:
+with open(studentId2Name_path, "r", encoding="UTF-8") as f:
     studentId2Name = msgjson.decode(
         f.read(),
         type=Dict[str, str],
     )
 
-with open(studentSkill2Icon_path, 'r', encoding='UTF-8') as f:
+with open(studentSkill2Icon_path, "r", encoding="UTF-8") as f:
     studentSkill2Icon = msgjson.decode(
         f.read(),
         type=Dict[str, Dict[str, str]],
@@ -62,4 +62,4 @@ def student_name_to_id(name: str) -> str:
         if name in studentId2Name[_id]:
             return _id
     else:
-        return '9999'
+        return "9999"

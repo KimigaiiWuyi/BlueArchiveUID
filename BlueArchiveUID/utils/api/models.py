@@ -16,7 +16,7 @@ class FriendData(TypedDict):
     updateTime: int
     maxFavorRank: int
     echelonType: int
-    assistInfoList: List['AssistInfo']
+    assistInfoList: List["AssistInfo"]
 
 
 class AssistInfo(TypedDict):
@@ -35,7 +35,7 @@ class AssistInfo(TypedDict):
     exSkillLevel: int
     passiveSkillLevel: int
     extraPassiveSkillLevel: int
-    equipment: List['Equipment']
+    equipment: List["Equipment"]
     weapon: str
     weaponUniqueId: int
     weaponType: int
