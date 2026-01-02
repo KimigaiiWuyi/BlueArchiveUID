@@ -1,5 +1,5 @@
 import json
-from typing import Any, Dict, List
+from typing import Any, Dict
 from pathlib import Path
 
 from msgspec import json as msgjson
@@ -22,7 +22,11 @@ stageId2AreaNum_path = MAP / "stageId2AreaNum_map.json"
 
 def make_stageId2AreaNum():
     result = {}
-    for stage in stages_data["Campaign"]:
+    for stage_id in stages_data:
+        stage = stages_data[stage_id]
+        print(stage)
+        if "Area" not in stage:
+            continue
         a = f"{stage['Area']}-{stage['Stage']}"
         if stage["Difficulty"] > 0:
             a += "H"
@@ -36,7 +40,8 @@ def make_id2name():
     result2 = {}
     result3 = {}
 
-    for student in student_data:
+    for student_id in student_data:
+        student = student_data[student_id]
         result[student["Id"]] = student["FamilyName"] + student["PersonalName"]
         result2[student["Id"]] = student["BulletType"].lower()
         result3[student["Id"]] = student["WeaponImg"]
@@ -53,7 +58,8 @@ def make_id2name():
 
 def make_weaponId2Nmae():
     result = {}
-    for student in student_data:
+    for student_id in student_data:
+        student = student_data[student_id]
         result[student["Id"]] = student["Weapon"]["Name"]
     with open(weaponId2Nmae_path, "w", encoding="UTF-8") as f:
         json.dump(result, f, indent=4, ensure_ascii=False)
@@ -61,7 +67,8 @@ def make_weaponId2Nmae():
 
 def make_equipId2Icon():
     result = {}
-    for equip in equip_data:
+    for equip_id in equip_data:
+        equip = equip_data[equip_id]
         result[equip["Id"]] = equip["Icon"]
     with open(equipId2Icon_path, "w", encoding="UTF-8") as f:
         json.dump(result, f, indent=4, ensure_ascii=False)
@@ -69,18 +76,19 @@ def make_equipId2Icon():
 
 def make_studentSkill2Icon():
     result = {}
-    for student in student_data:
+    for student_id in student_data:
+        student = student_data[student_id]
         _r = {}
         skills = student["Skills"]
-        for skill in skills:
-            if skill["SkillType"] == "ex":
-                _r["ex"] = skill["Icon"]
-            elif skill["SkillType"] == "normal":
-                _r["nm"] = skill["Icon"]
-            elif skill["SkillType"] == "passive":
-                _r["ps"] = skill["Icon"]
-            elif skill["SkillType"] == "sub":
-                _r["sub"] = skill["Icon"]
+        for skill_type in skills:
+            if skill_type == "Ex":
+                _r["ex"] = skills[skill_type]["Icon"]
+            elif skill_type == "Public":
+                _r["nm"] = skills[skill_type]["Icon"]
+            elif skill_type == "Passive":
+                _r["ps"] = skills[skill_type]["Icon"]
+            elif skill_type == "ExtraPassive":
+                _r["sub"] = skills[skill_type]["Icon"]
         result[student["Id"]] = _r
     with open(studentSkill2Icon_path, "w", encoding="UTF-8") as f:
         json.dump(result, f, indent=4, ensure_ascii=False)
@@ -98,19 +106,19 @@ if __name__ == "__main__":
     with open(student_data_path, "r", encoding="UTF-8") as f:
         student_data = msgjson.decode(
             f.read(),
-            type=List[Dict[str, Any]],
+            type=Dict[str, Dict[str, Any]],
         )
 
     with open(equip_data_path, "r", encoding="UTF-8") as f:
         equip_data = msgjson.decode(
             f.read(),
-            type=List[Dict[str, Any]],
+            type=Dict[str, Dict[str, Any]],
         )
 
     with open(stages_data_path, "r", encoding="UTF-8") as f:
         stages_data = msgjson.decode(
             f.read(),
-            type=Dict[str, List[Dict[str, Any]]],
+            type=Dict[str, Dict[str, Any]],
         )
 
     make_map()
