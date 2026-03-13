@@ -9,10 +9,9 @@ from ..utils.download import download_file
 from ..utils.ba_config import ba_config
 from ..utils.resource_path import GUIDE_PATH, HEHEDI_LEVEL_GUIDE_PATH
 
-guide_source = ba_config.get_config("guide_source").data
-
 
 async def get_guide_img(battle: str) -> Union[List[bytes], str]:
+    guide_source = ba_config.get_config("guide_source").data
     battle = battle.strip().replace("困难", "H").replace("Hard", "H").replace("h", "H")
     if battle.endswith("H"):
         battle = "H" + battle[:-1]

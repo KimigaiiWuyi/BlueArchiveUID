@@ -12,11 +12,10 @@ from ..utils.ba_config import ba_config
 sv_ba_wiki = SV("BAWIKI")
 sv_ba_guide = SV("BA攻略")
 
-char_source: List[str] = ba_config.get_config("char_guide_source").data
-
 
 @sv_ba_wiki.on_prefix(("角色攻略"))
 async def send_ba_char_pic(bot: Bot, ev: Event):
+    char_source: List[str] = ba_config.get_config("char_guide_source").data
     msg_list = []
     for s in char_source:
         if s == "hehedi":

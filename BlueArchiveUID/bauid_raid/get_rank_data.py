@@ -8,8 +8,6 @@ now_season = 7
 
 SERVER_MAP = {"1": "官服", "2": "B服"}
 
-disable_xtzx_url: bool = ba_config.get_config("disable_xtzx_url").data
-
 
 async def get_ranking_from_xtzx(season: Union[str, int, None] = None, server_id: Union[str, int] = 1):
     sdata = await xtzx_api.get_now_season_data()
@@ -76,6 +74,8 @@ async def get_ranking_from_xtzx(season: Union[str, int, None] = None, server_id:
         im_list.append("✅查B服请发【ba总力战b】")
     else:
         im_list.append("✅查官服请发【ba总力战】")
+
+    disable_xtzx_url: bool = ba_config.get_config("disable_xtzx_url").data
 
     if disable_xtzx_url:
         im_list.append("✅数据来源 什亭之匣(Arona ICU)")
